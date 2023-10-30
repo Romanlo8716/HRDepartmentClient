@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Адреса отделов</title>
+</head>
+<body>
+    <h3 style="text-align:center;">Адреса отделов</h3>
+
+    <hr style="width:100px; margin: auto;" />
+                
+        <p style="text-align:center;">
+    <a [routerLink]="['/adressofdepartment-page/create']">Добавить адрес</a>
+    </p>
+
+    <div class="middle">
+        <tr *ngFor="let adressOfDepartment of adressOfDepartments">
+            <a class="boxDepLink">
+                <div class="boxAdressDepartment">
+
+                    <div class="descriptionAdressDepartment">
+
+                        <div style="display:inline-block; width:200px;">
+                            <div class="city">Населенный пункт: <br> {{adressOfDepartment.city}}</div>
+                          
+                        </div>
+
+                        <div style="display:inline-block; width:200px;">
+                            <div class="street">Улица: <br> {{adressOfDepartment.street}}</div>
+                            
+                        </div>
+
+
+                        <div style="display:inline-block; width:150px;">
+                            <div class="house">Дом: <br> {{adressOfDepartment.house}}</div>
+                            
+                        </div>
+
+
+
+
+
+
+                            <div style="display:inline-block;">
+                                <a class="btn btn-primary" style="margin-top:-30px;">Изменить</a>
+                                <a  class="btn btn-danger" style="margin-top:-30px; margin-left: 10px;">Удалить</a>
+                            </div>
+                        
+
+                    </div>
+
+                </div>
+            </a>
+        </tr>
+    </div>
+</body>
+</html>

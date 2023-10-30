@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сотрудники</title>
+    
+</head>
+<body>
+    <h3 style="text-align:center; margin-top: 20px;">Сотрудники компании</h3>
+
+    <hr style="width:100px; margin: auto;" />
+   
+        <p style="text-align:center;">
+            <a href="">Добавить сотрудника</a>
+        </p>
+
+
+      
+            <div class="middle">
+       
+      
+               
+                <div *ngFor="let item of groupByDepartmentsAndPostsOfWorker">
+                    <div class="departmentWorker">{{item.department.nameDepartment}}</div>
+                                        
+                       <div style="display: inline-block;" *ngFor="let worker of item.department.workers">
+                         <a [routerLink]="['/worker-description-page', worker.id]"  style="text-decoration:none; color:black;">
+                             <div class="boxWorker">
+                                    
+                                 <div class="photoWorker">
+                                     <!-- <input type="hidden" name="Photo" value="{{f.photo}}" /> -->
+                                  
+                                  
+                                 </div>
+                               
+                                 <div class="nameWorker"> {{worker.name}} {{worker.surname}}</div>
+         
+                                 <div class="postWorker">{{worker.namePost}}</div>
+         
+                             
+                                 <div class="phoneWorker">{{worker.phone}}</div>
+                             </div>
+                         </a>
+                        
+                        </div>
+                     
+                 
+                </div>
+               
+            </div>
+</body>
+</html>
