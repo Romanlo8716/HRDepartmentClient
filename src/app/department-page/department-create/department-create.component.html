@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Добавить</h1>
+
+<h4>Отдел</h4>
+<hr style="width: 1276px;"/>
+
+    <div class="col-md-4">
+        <form (ngSubmit)="onSubmit()"  #myForm="ngForm">
+            <div class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">Название отдела</label>
+                <input id="nameDepartment" name="nameDepartment" class="form-control" [(ngModel)]="formData.nameDepartment" required/>
+                <span  class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label  class="control-label">Телефон отдела</label>
+                <input id="phoneNumber" name="phoneNumber" class="form-control" [(ngModel)]="formData.phoneNumber" required/>
+                <span  class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Адрес отдела</label>
+                <select  class="form-select" name="adressOfDepartment" [(ngModel)]="formData.adressOfDepartment.id" required>
+                    <option value="">Выберите адрес отдела</option>
+                    <ng-container *ngFor="let item of adressOfDepartments">
+                        <option   [value]="item.id" >{{item.city}} {{item.street}} {{item.house}}</option>
+                    </ng-container>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Создать" style="margin-top:20px" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+
+
+<div>
+    <a [routerLink]="['/department-page']">Вернуться назад</a>
+</div>
+</body>
+</html>

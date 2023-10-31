@@ -25,7 +25,7 @@
                     <div class="departmentWorker">{{item.department.nameDepartment}}</div>
                                         
                        <div style="display: inline-block;" *ngFor="let worker of item.department.workers">
-                         <a [routerLink]="['/worker-description-page', worker.id]"  style="text-decoration:none; color:black;">
+                         <a [routerLink]="['/worker-page/worker-description-page', worker.id]"  style="text-decoration:none; color:black;">
                              <div class="boxWorker">
                                     
                                  <div class="photoWorker">

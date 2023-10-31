@@ -8,10 +8,12 @@ import { HomeComponent } from './home/home.component';
 import { DepartmentPageComponent } from './department-page/department-page.component';
 import { PostPageComponent } from './post-page/post-page.component';
 import { AdressofdepartmentPageComponent } from './adressofdepartment-page/adressofdepartment-page.component';
-import { WorkerDescriptionPageComponent } from './worker-description-page/worker-description-page.component';
+import { WorkerDescriptionPageComponent } from './worker-page/worker-description-page/worker-description-page.component';
 import { AdressofdepartmentCreateComponent } from './adressofdepartment-page/adressofdepartment-create/adressofdepartment-create.component';
 import { FormsModule } from '@angular/forms';
 import { PostCreateComponent } from './post-page/post-create/post-create.component';
+import { DepartmentCreateComponent } from './department-page/department-create/department-create.component';
+import { WorkerCreateComponent } from './worker-create/worker-create.component';
 
 
 
@@ -27,6 +29,8 @@ import { PostCreateComponent } from './post-page/post-create/post-create.compone
     WorkerDescriptionPageComponent,
     AdressofdepartmentCreateComponent,
     PostCreateComponent,
+    DepartmentCreateComponent,
+    WorkerCreateComponent,
   ],
   imports: [
     BrowserModule,

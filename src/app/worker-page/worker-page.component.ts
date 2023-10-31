@@ -6,7 +6,7 @@ import { Department } from '../models/Department';
 import { DepartmentService } from '../service/department.service';
 import { DepartmentsAndPostsOfWorkerService } from '../service/deprtmentsandpostsofworker.service';
 import { DepartmentsAndPostsOfWorker } from '../models/DepartmentsAndPostsOfWorker';
-import { WorkerDescriptionPageComponent } from '../worker-description-page/worker-description-page.component';
+import { WorkerDescriptionPageComponent } from './worker-description-page/worker-description-page.component';
 
 @Component({
   selector: 'app-worker-page',
