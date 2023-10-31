@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная страница</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+   
+
+</head>
+<body>
+    
+    <header style="width: 100%;" class="p-3 text-bg-dark">
+       
+    
+            <input type="checkbox" id="side-checkbox" />
+            <div class="side-panel" >
+                <label class="side-button-2" for="side-checkbox">+</label>
+                  
+                <div class="side-title">Список страниц:</div>
+               
+                <a class="menuItem" [routerLink]="['/worker-page']">
+                    <div style="margin-top:7px">
+                    <img style="width:30px; height:30px; margin-top:-5px" src="assets/images/workersWhite.png" />
+                    Работники
+                    </div>
+                </a>
+                <a class="menuItem" [routerLink]="['/post-page']">
+                    <div style="margin-top:7px">
+                    <img style="width:30px; height:30px; margin-top:-5px" src="assets/images/postWhite.png" />
+                    Должности
+                    </div>
+                </a>
+
+                <a class="menuItem" [routerLink]="['/department-page']">
+                    <div style="margin-top:7px">
+                    <img style="width:30px; height:25px" src="assets/images/departmentWhite.png" />
+                    Отделы
+                    </div>
+                </a>
+                <hr class="dropdown-divider">
+              
+                    <a class="menuItem" [routerLink]="['/adressofdepartment-page']">
+                        <div style="margin-top:7px">
+                            <img style="width:30px; height:30px" src="assets/images/adressDep.png" />
+                            Адреса отделов
+                        </div>
+                    </a>
+                
+            </div>
+    
+    
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start" style="display: inline-block">
+    
+                <div class="side-button-1-wr" style="display: inline-block; width: 50px;">
+                    <label class="side-button-1" for="side-checkbox">
+                        <div class="side-b side-open"><img style="width:20px; height:20px; margin-left: -10px;; margin-top: -10px;" src="assets/images/menuIcon.png" /></div>
+                        <div class="side-b side-close"> <img style="width:20px; height:20px" src="assets/images/menuIcon.png" /></div>
+                    </label>
+                </div>
+    
+                <a [routerLink]="['/']"  class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none" style="font-size: 23px; margin-left: 70px;">
+                    Отдел кадров
+                </a>
+                
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0" style="margin-left: 80px;">
+                    <li><a  [routerLink]="['/worker-page']" class="nav-link">Наш персонал</a></li>
+                    <li><a [routerLink]="['/department-page']" class="nav-link">Отделы</a></li>
+                    <li><a [routerLink]="['/post-page']" class="nav-link">Должности</a></li>
+                </ul>
+    
+                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                    <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search">
+                </form>
+    
+                <div class="text-end">
+                    <button type="button" class="btn btn-outline-light me-2">Вход</button>
+                    <button type="button" class="btn btn-warning">Регистрация</button>
+                </div>
+            </div>
+       
+    </header>
+   
+    <router-outlet></router-outlet>
+
+<div class="container">
+</div>
+        <footer  class="footer">
+          <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item"><a [routerLink]="['/worker-page']" class="nav-link px-2 text-muted">Наш персонал</a></li>
+            <li class="nav-item"><a [routerLink]="['/department-page']" class="nav-link px-2 text-muted">Отделы</a></li>
+            <li class="nav-item"><a [routerLink]="['/post-page']" class="nav-link px-2 text-muted">Должности</a></li>
+          </ul>
+          <p class="text-center text-muted">© 2023 HRDepartment, Inc</p>
+        </footer>
+      
+
+
+</body>
+</html>

@@ -1,0 +1,658 @@
+
+<span *ngIf="worker">
+    <script src="/js/intlTelInput.min.js" charset="utf-8"></script>
+
+    <h2 class="nameWorker">{{worker.surname}}  {{worker.name}} {{worker.patronymic}}</h2>
+    
+    
+    <div class="searchDescWorkerIntelligence">
+        <a (click)="scrollToElement(tableDepartmentId)" style="text-decoration:none;">
+            <div class="DepWorker"><div style="margin-top:5px;">Отделы и должности</div></div>
+        </a>
+    
+        <a (click)="scrollToElement(tableMilitaryId)" style="text-decoration:none;">
+            <div class="DepWorker"><div style="margin-top:5px;">Военный билет</div></div>
+        </a>
+    
+        <a (click)="scrollToElement(tableLaborId)" style="text-decoration:none;">
+            <div class="DepWorker"><div style="margin-top:5px;">Трудовая книга</div></div>
+        </a>
+    
+        <a (click)="scrollToElement(tableEducationId)" style="text-decoration:none;">
+            <div class="DepWorker"><div style="margin-top:5px;">Образование</div></div>
+        </a>
+    
+        <a (click)="scrollToElement(tableVacationId)" style="text-decoration:none;">
+            <div class="DepWorker"><div style="margin-top:5px;">Отпуска</div></div>
+        </a>
+    
+        <a (click)="scrollToElement(tableMedicalId)" style="text-decoration:none;">
+            <div class="DepWorker"><div style="margin-top:5px;">Медицинская книга</div></div>
+        </a>
+    
+    </div>
+    <br>
+    
+    <div style="text-align:center; color: rgb(13,81,146); font-size:22px;">Отчеты</div>
+    <hr style="width:100px; margin: auto;" />
+    
+    <div class="searchDescWorkerIntelligenceReport">
+        <div class="form-wrapper">
+        <form   asp-action="GetReportDepartmentsAndPosts">
+            <input type="hidden" name="idWorker" value="@Model?.worker.Id" />
+            <input type="submit" value="Отчет по отделам" class="DepWorker" />
+        </form>
+        </div>
+        <div class="form-wrapper">
+            <a asp-action="ReportLaborBook" asp-route-id="@Model?.worker.Id">
+            <input type="submit" value="Отчет по трудовой книге" class="DepWorker" />
+           </a>
+        </div>
+        <div class="form-wrapper">
+            <a asp-action="ReportEducation" asp-route-id="@Model?.worker.Id">
+                <input type="submit" value="Отчет по образованиям" class="DepWorker" />
+            </a>
+        </div>
+        <div class="form-wrapper">
+            <a asp-action="ReportOfVacation" asp-route-id="@Model?.worker.Id">
+                <input type="submit" value="Отчет по отпускам" class="DepWorker" />
+            </a>
+        </div>
+        <div class="form-wrapper">
+            <a asp-action="ReportMedicalBook" asp-route-id="@Model?.worker.Id">
+                <input type="submit" value="Отчет по мед. книге" class="DepWorker" />
+            </a>
+        </div>
+    
+    </div>
+    
+    <div class="ourInform">
+    
+       <div class="boxImage">
+    
+            <input type="hidden" name="Photo" value="@Model.worker.Photo" />
+          
+                <img class="image" >
+            
+    
+       </div>
+    
+       <div class="lickInform">
+            <h5 class="logoLichInform">Личные данные</h5>
+            <div class="boxLichInform">
+                <div style="margin-top:15px; margin-left:15px;">
+                    <div style="color:rgb(108,112,115);display:inline-block;">Дата рождения:</div>
+                    <div style="font-size:16px; display:inline-block; margin-right:40px;float: right;">
+                        {{worker.dateOfBirth}}
+                    </div>
+                    <br>
+    
+                    <div style="color:rgb(108,112,115);display:inline-block;">Пол:</div>
+                    <div style="font-size:16px; display:inline-block;margin-right:40px;float: right;">
+                        {{worker.gender}}
+                    </div>
+                    <br>
+    
+                    <div style="color:rgb(108,112,115);display:inline-block;">Место проживания:</div>
+                    <div style="font-size:16px; display:inline-block; margin-right:40px;float: right;">
+                        {{worker.city}}, {{worker.street}}, {{worker.house}}
+                    </div>
+                    <br>
+                    <br>
+                  
+    
+                    <h6 style="text-align:center;">Данные о семье</h6>
+    
+                    <div style="color:rgb(108,112,115);display:inline-block;"> Семейное положения:</div>
+                    <div style="font-size:16px; display:inline-block; margin-right:40px;float: right;">
+                        {{worker.familyPosition}}
+                    </div>
+                    <br>
+    
+                    <div style="color:rgb(108,112,115);display:inline-block;"> Количество детей:</div>
+                    <div style="font-size:16px; display:inline-block;margin-right:40px;float: right;">
+                        {{worker.countChildren}}
+                    </div>
+                    <br>
+                     <br>
+    
+                    <h6 style="text-align:center;">Контактная информация </h6>
+    
+                    <div style="color:rgb(108,112,115);display:inline-block;"> Телефон:</div>
+                    <div style="font-size:16px; display:inline-block;margin-right:40px;float: right;">
+                        {{worker.phone}}
+                    </div>
+                    <br>
+    
+                    <div style="color:rgb(108,112,115);display:inline-block;"> Электронная почта:</div>
+                    <div style="font-size:16px; display:inline-block; margin-right:40px;float: right;">
+                        {{worker.email}}
+                    </div>
+                    <br>
+    
+                </div>
+            </div>
+        </div>
+    
+        <div class="passInform">
+            <h5 class="logoLichInform">Паспортные данные</h5>
+            <div class="boxLichInform">
+                <div style="margin-top:15px; margin-left:15px;">
+    
+                    <div style="color:rgb(108,112,115);display:inline-block;"> Серия паспорта:</div>
+                    <div style="font-size:16px; display:inline-block; margin-right:40px;float: right;">
+                        {{worker.seriesPass}}
+                    </div>
+                    <br>
+    
+                    <div style="color:rgb(108,112,115);display:inline-block;"> Номер паспорта:</div>
+                    <div style="font-size:16px; display:inline-block; margin-right:40px;float: right;">
+                        {{worker.numberPass}}
+                    </div>
+                    <br>
+    
+                    <div style="color:rgb(108,112,115);display:inline-block;">  Кем выдан:</div>
+                    <div style="font-size:16px; display:inline-block; margin-right:40px;float: right;">
+                       {{worker.issuedByWhom}}
+                    </div>
+                    <br>
+    
+                    <div style="color:rgb(108,112,115);display:inline-block;"> Дата выдачи:</div>
+                    <div style="font-size:16px; display:inline-block; margin-right:40px;float: right;">
+                        {{worker.dateOfIssue}}
+                    </div>
+                    <br>
+    
+                    <div style="color:rgb(108,112,115);display:inline-block;"> Код подразделения:</div>
+                    <div style="font-size:16px; display:inline-block; margin-right:40px;float: right;">
+                        {{worker.divisionCode}}
+                    </div>
+                    <br>
+                    <br>
+    
+                    <h6 style="text-align:center;">СНИЛС</h6>
+    
+                    <div style="color:rgb(108,112,115);display:inline-block;"> Номер СНИЛС:</div>
+                    <div style="font-size:16px; display:inline-block; margin-right:40px;float: right;">
+                        {{worker.numberSnils}}
+                    </div>
+                    <br>
+                    <br>
+                 
+                    <h6 style="text-align:center;">ИНН </h6>
+    
+                    <div style="color:rgb(108,112,115);display:inline-block;"> Номер ИНН:</div>
+                    <div style="font-size:16px; display:inline-block; margin-right:40px;float: right;">
+                        {{worker.numberInn}}
+                    </div>
+                    <br>
+    
+                
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+   
+        <a style="text-decoration:none" asp-action="Edit" asp-route-id="@Model?.worker.Id">
+            <div class="editButton">
+    
+                <p class="centered"> Изменить данные</p>
+            </div>
+        </a>
+    
+    
+         
+    
+    
+            <div class="boxDescWorker">
+        <h4 style="margin-left:130px; margin-top: 30px;">Описание сотрудника &nbsp; &nbsp;</h4>
+    
+            
+    
+            <textarea  style="width: 1274px; height:200px;overflow-y: scroll;   border: 1px solid rgb(226,226,226); font-size:18px; margin-left: 100px;">
+                {{worker.descriptionWorker}}
+                
+            </textarea>
+            </div>
+    
+       
+    
+    
+        <div style="margin-top:55px;">
+        <hr style="margin-left: 100px; width: 1276px;"/>
+    
+            <table #tableDepartmentId id="tableDepartmentId">
+                <tbody>
+    
+                    <tr>
+                        <td>
+                            <h3 style="margin-left: 120px;">Отделы и должности сотрудника &nbsp; &nbsp;</h3>
+                        </td>
+                      
+                        <td>
+                            <h5>
+                          
+                                <a asp-controller="DepartmentsAndPostsOfWorkers" asp-action="AddDepartment" asp-route-id="@Model?.worker.Id"> Добавить в новый отдел</a> <span> | </span>
+    
+                            
+                            
+                            <a asp-controller="Departments" asp-action="Index" asp-route-id="@Model?.worker.Id">Просмотр всех отделов </a> |
+                            
+                           
+                            
+                              
+                            
+                            </h5>
+                        </td>
+                     
+                    </tr>
+                </tbody>
+            </table>
+    
+                <div style="background-color: white; height:200px;overflow-y: scroll; border: 1px solid rgb(150,150,150);margin-left: 100px; width: 1274px;">
+            <table  class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            Отдел
+                        </th>
+                        <th>
+                            Должность
+                        </th>
+    
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                   <!-- Список должностей и отделов -->
+                       
+                            <tr *ngFor="let item of descriptionWorkerDepartmentsAndPosts">
+                            <td>
+                               {{item.department.nameDepartment}}
+                            </td>
+                            <td>
+                               {{item.post.namePost}}
+                            </td>
+    
+                          
+                                
+                                    <td>
+                                   
+                                    <a asp-controller="DepartmentsAndPostsOfWorkers" asp-action="Details" asp-route-id="@item.Id">Подробнее</a> |
+                                    <a asp-controller="DepartmentsAndPostsOfWorkers" asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+                                    </td>
+                                
+                                
+                          
+                        </tr>
+                        
+                    
+                </tbody>
+            </table>
+                </div>
+                <br />
+            <table #tableMilitaryId id="tableMilitaryId">
+                <tbody>
+    
+                    <tr>
+                        <td>
+                            <h3 style="margin-left: 120px;">Данные военного билета &nbsp; &nbsp;</h3>
+                        </td>
+                        <td>
+                            <h5>
+                           
+                                <a asp-controller="Militarys" asp-action="AddMilitary" asp-route-id="@Model?.worker.Id">Добавить</a> <span> | </span>
+                            
+                          
+                                <a asp-controller="Militarys" asp-action="Index" asp-route-id="@Model?.worker.Id">Просмотр</a>
+                            </h5>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    
+                <div style="background-color: white; height:200px; border: 1px solid rgb(150,150,150);margin-left: 100px; width: 1274px;">
+                
+            <div style="margin-top:10px; margin-left:10px;">
+                <dl class="row">
+                    <dt class="col-sm-2">
+                       Звание
+                    </dt>
+                    <dd class="col-sm-10">
+                        {{worker.militaryTitle}}
+                    </dd>
+                    <dt class="col-sm-2">
+                        Категория годности
+                    </dt>
+                    <dd class="col-sm-10">
+                        {{worker.shelfLife}}
+                    </dd>
+                    <dt class="col-sm-2">
+                        Категория запаса
+                    </dt>
+                    <dd class="col-sm-10">
+                        {{worker.stockCategory}}
+                    </dd>
+                    <dt class="col-sm-2">
+                        Профиль
+                    </dt>
+                    <dd class="col-sm-10">
+                        {{worker.profile}}
+                    </dd>
+                    <dt class="col-sm-2">
+                        ВУС
+                    </dt>
+                    <dd class="col-sm-10">
+                        {{worker.vus}}
+                    </dd>
+                    <dt class="col-sm-2">
+                        Название коммисариата
+                    </dt>
+                    <dd class="col-sm-10">
+                        {{worker.nameKomis}}
+                    </dd>
+    
+                </dl>
+                    </div>
+            </div>
+            <br />
+        <table #tableLaborId id="tableLaborId">
+            <tbody>
+           
+                <tr>
+                    <td>
+                            <h3 style="margin-left: 120px;">Данные трудовой книги &nbsp; &nbsp;</h3>
+                    </td>
+                    <td>
+                        <h5>
+                           
+                                <a asp-controller="LaborBooks" asp-action="AddLaborBook" asp-route-id="@Model?.worker.Id">   Добавить</a> <span> | </span>
+                            
+                            <a asp-controller="LaborBooks" asp-action="Index" asp-route-id="@Model?.worker.Id">Просмотр</a>
+                        </h5>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    
+                <div style="background-color: white; height:200px;overflow-y: scroll; border: 1px solid rgb(150,150,150);margin-left: 100px; width: 1274px;">
+    
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            Дата записи
+                        </th>
+                        <th>
+                            Наименование работы
+                        </th>
+                        <th>
+                            Сведения
+                        </th>
+                        <th>
+                            Название документа
+                        </th>
+                        <th>
+                            Номер документа
+                        </th>
+    
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                   
+                        
+                        <tr *ngFor="let item of descriptionWorkerLaborBooks">
+                          
+                            <td>         
+                                {{item.dateRecord}}
+                            </td>
+                            <td>
+                                {{item.nameWork}}
+                            </td>
+                            <td>
+                                {{item.informationAboutWork}}
+                            </td>
+                            <td>
+                                {{item.nameDocument}} 
+                            </td>
+                            <td>
+                                {{item.numberDocument}}
+                            </td>
+                            
+                                <td>
+                                    <a asp-controller="LaborBooks" asp-action="Edit" asp-route-id="@item.Id">Изменить</a> |
+                                    <a asp-controller="LaborBooks" asp-action="Details" asp-route-id="@item.Id">Подробнее</a> |
+                                    <a asp-controller="LaborBooks" asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+                                </td>
+                           
+                        </tr>
+                 
+                   
+                </tbody>
+            </table>
+            </div>
+
+            <br />
+
+            <table #tableEducationId id="tableEducationId">
+                <tbody>
+    
+                    <tr>
+                        <td>
+                            <h3 style="margin-left: 120px;">Данные об образованиях &nbsp; &nbsp;</h3>
+                        </td>
+                        <td>
+                            <h5>
+                           
+                                <a asp-controller="Educations" asp-action="AddEducation" asp-route-id="@Model?.worker.Id">   Добавить</a> <span> | </span>
+                            
+                                <a asp-controller="Educations" asp-action="Index" asp-route-id="@Model?.worker.Id">Просмотр</a>
+                            </h5>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    
+                <div style="background-color: white; height:200px;overflow-y: scroll; border: 1px solid rgb(150,150,150);margin-left: 100px; width: 1274px;">
+    
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            Серия диплома
+                        </th>
+                        <th>
+                            Номер диплома
+                        </th>
+                        <th>
+                            Специальность
+                        </th>
+                        <th>
+                            Год окончания
+                        </th>
+    
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                   
+                        <tr *ngFor="let item of descriptionWorkerEducations">
+                            <td>
+                              {{item.seriesDiploma}}
+                            </td>
+                            <td>
+                               {{item.numberDiploma}}
+                            </td>
+                            <td>
+                              {{item.special}}
+                            </td>
+                            <td>{{item.dateYearEnd}}
+                               
+                            </td>
+                           
+                                <td>
+                                    <a asp-controller="Educations" asp-action="Edit" asp-route-id="@item.Id">Изменить</a> |
+                                    <a asp-controller="Educations" asp-action="Details" asp-route-id="@item.Id">Подробнее</a> |
+                                    <a asp-controller="Educations" asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+                                </td>
+                           
+    
+                        </tr>
+                    
+                </tbody>
+            </table>
+    
+            </div>
+    
+            <br />
+            <table #tableVacationId id="tableVacationId">
+                <tbody>
+    
+                    <tr>
+                        <td>
+                            <h3 style="margin-left: 120px;">Данные об отпусках &nbsp; &nbsp;</h3>
+                        </td>
+                        <td>
+                            <h5>
+                         
+                                <a asp-controller="Vacations" asp-action="AddVacation" asp-route-id="@Model?.worker.Id">Добавить</a> <span> | </span>
+                            
+                                <a asp-controller="Vacations" asp-action="Index" asp-route-id="@Model?.worker.Id">Просмотр</a>
+                            </h5>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    
+                <div style="background-color: white; height:200px;overflow-y: scroll; border: 1px solid rgb(150,150,150);margin-left: 100px; width: 1274px;">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                           Дата начала
+                        </th>
+                        <th>
+                            Дата окончания
+                        </th>
+                        <th>
+                           Тип отпуска
+                        </th>
+    
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                   <!-- Цикл Vacations -->
+                        <tr *ngFor="let item of descriptionWorkerVacations">
+                            <td>
+                              {{item.dateStartVacation}}
+                            </td>
+                            <td>
+                                {{item.dateEndVacation}}
+                            </td>
+                            <td>
+                               {{item.typeVacation}}
+                            </td>
+                           
+                                <td>
+                                    <a asp-controller="Vacations" asp-action="Edit" asp-route-id="@item.Id">Изменить</a> |
+                                    <a asp-controller="Vacations" asp-action="Details" asp-route-id="@item.Id">Подробнее</a> |
+                                    <a asp-controller="Vacations" asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+                                </td>
+                          
+                        </tr>
+                    
+                </tbody>
+            </table>
+            </div>
+            <br />
+            <table #tableMedicalId id="tableMedicalId">
+                <tbody >
+    
+                    <tr>
+                        <td>
+                            <h3 style="margin-left: 120px;">Данные медицинской книги &nbsp; &nbsp;</h3>
+                        </td>
+                        <td>
+                            <h5>
+                          
+                                <a asp-controller="MedicalBooks" asp-action="AddMedicalBook" asp-route-id="@Model?.worker.Id">   Добавить</a> <span> | </span>
+                           
+                                <a asp-controller="MedicalBooks" asp-action="Index" asp-route-id="@Model?.worker.Id">Просмотр</a>
+                            </h5>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    
+                <div style="background-color: white; height:200px;overflow-y: scroll; border: 1px solid rgb(150,150,150);margin-left: 100px; width: 1274px;">
+    
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                           Место осмотра
+                        </th>
+                        <th>
+                           Дата осмотра
+                        </th>
+                        <th>
+                           Заключение
+                        </th>
+    
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+               
+                        <tr *ngFor="let item of descriptionWorkerMedicalBooks">
+                            <td>
+                              {{item.placeExam}}
+                            </td>
+                            <td>
+                               {{item.dateExam}}
+                            </td>
+                            <td>
+                               {{item.conclusion}}
+                            </td>
+                           
+                                <td>
+                                    <a asp-controller="MedicalBooks" asp-action="Edit" asp-route-id="@item.Id">Изменить</a> |
+                                    <a asp-controller="MedicalBooks" asp-action="Details" asp-route-id="@item.Id">Подробнее</a> |
+                                    <a asp-controller="MedicalBooks" asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+                                </td>
+                            
+                        </tr>
+                    
+                </tbody>
+            </table>
+            </div>
+    
+       
+    </div>
+    <br>
+    <div style="margin-top:30px;">
+    
+        <a style="margin-left: 100px;" [routerLink]="['/worker-page']">Вернуться назад</a>
+    </div>
+    
+ 
+    
+        <script>
+            $(document).ready(function () {
+                $('#summernote').summernote({
+                    height: 200,
+                    disableDragAndDrop: true
+    
+                });
+                $('#summernote').summernote('disable');
+            });
+        </script>
+    
+    
+
+</span>
+

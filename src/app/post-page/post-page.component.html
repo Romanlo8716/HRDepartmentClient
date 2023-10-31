@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Должности компании</title>
+</head>
+<body>
+    <h3 style="text-align:center; margin-top: 20px;">Должности компании</h3>
+
+    <hr style="width:100px; margin: auto;" />
+   
+        <p style="text-align:center;">
+            <a [routerLink]="['/post-page/create']">Добавить должность</a>
+        </p>
+
+    <div class="middle">
+    <tr *ngFor="let post of posts">
+        <div class="boxPost">
+
+            <div class="descriptionPost">
+
+                <div style="display:inline-block; width:500px;">
+                    <div class="namePost"> <td>{{ post.namePost }} </td></div>
+                    <div class="salaryPost">Базовая ставка: <td class="no-wrap">{{post.salary}}</td> рублей</div>
+                </div>
+
+
+              
+                    <div style="display:inline-block;">
+                        <a  class="btn btn-primary" style="margin-top:-40px">Изменить</a>
+                        <a  class="btn btn-danger" style="margin-top:-40px; margin-left: 10px;">Удалить</a>
+                    </div>
+                
+
+            </div>
+
+        </div>
+      </tr>
+      </div>
+</body>
+</html>
