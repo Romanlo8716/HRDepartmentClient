@@ -15,6 +15,7 @@ import { PostCreateComponent } from './post-page/post-create/post-create.compone
 import { DepartmentCreateComponent } from './department-page/department-create/department-create.component';
 import { WorkerCreateComponent } from './worker-page/worker-create/worker-create.component';
 import { DepartmentDeleteComponent } from './department-page/department-delete/department-delete.component';
+import { AdressofdepartmentDeleteComponent } from './adressofdepartment-page/adressofdepartment-delete/adressofdepartment-delete.component';
 
 
 
@@ -33,6 +34,7 @@ import { DepartmentDeleteComponent } from './department-page/department-delete/d
     DepartmentCreateComponent,
     WorkerCreateComponent,
     DepartmentDeleteComponent,
+    AdressofdepartmentDeleteComponent,
   ],
   imports: [
     BrowserModule,
