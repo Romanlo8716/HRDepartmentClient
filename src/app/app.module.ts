@@ -13,7 +13,8 @@ import { AdressofdepartmentCreateComponent } from './adressofdepartment-page/adr
 import { FormsModule } from '@angular/forms';
 import { PostCreateComponent } from './post-page/post-create/post-create.component';
 import { DepartmentCreateComponent } from './department-page/department-create/department-create.component';
-import { WorkerCreateComponent } from './worker-create/worker-create.component';
+import { WorkerCreateComponent } from './worker-page/worker-create/worker-create.component';
+import { DepartmentDeleteComponent } from './department-page/department-delete/department-delete.component';
 
 
 
@@ -31,6 +32,7 @@ import { WorkerCreateComponent } from './worker-create/worker-create.component';
     PostCreateComponent,
     DepartmentCreateComponent,
     WorkerCreateComponent,
+    DepartmentDeleteComponent,
   ],
   imports: [
     BrowserModule,

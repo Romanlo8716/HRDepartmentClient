@@ -9,20 +9,27 @@ import { WorkerDescriptionPageComponent } from './worker-page/worker-description
 import { AdressofdepartmentCreateComponent } from './adressofdepartment-page/adressofdepartment-create/adressofdepartment-create.component';
 import { PostCreateComponent } from './post-page/post-create/post-create.component';
 import { DepartmentCreateComponent } from './department-page/department-create/department-create.component';
+import { WorkerCreateComponent } from './worker-page/worker-create/worker-create.component';
+import { DepartmentDeleteComponent } from './department-page/department-delete/department-delete.component';
 
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
+
   { path: 'worker-page', component: WorkerPageComponent },
-  { path: 'department-page', component: DepartmentPageComponent },
-  { path: 'post-page', component: PostPageComponent },
-  { path: 'adressofdepartment-page', component: AdressofdepartmentPageComponent},
+  { path: 'worker-page/create', component: WorkerCreateComponent},
   { path: 'worker-page/worker-description-page/:id', component: WorkerDescriptionPageComponent},
+
+  { path: 'department-page', component: DepartmentPageComponent },
+  { path: 'department-page/create', component: DepartmentCreateComponent},
+  { path: 'department-page/delete/:id', component: DepartmentDeleteComponent},
+
+  { path: 'post-page', component: PostPageComponent },
+  { path: 'post-page/create', component: PostCreateComponent}, 
+
+  { path: 'adressofdepartment-page', component: AdressofdepartmentPageComponent},
   { path: 'adressofdepartment-page/create', component: AdressofdepartmentCreateComponent},
-  { path: 'post-page/create', component: PostCreateComponent},
-  { path: 'department-page/create', component: DepartmentCreateComponent}
- 
-  
+
 ];
 
 @NgModule({

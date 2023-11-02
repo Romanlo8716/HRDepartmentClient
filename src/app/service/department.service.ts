@@ -13,14 +13,27 @@ export class DepartmentService{
         return this.http.get<any>(`http://localhost:8080/getDepartments`);
     }
 
-    public getDepartmentById(id:Number):any{
-        return this.http.get<Department>(`http://localhost:8080/getDepartmentById` + `/id=` + id);
+    public getDepartmentById(id:String|null):any{
+        return this.http.get<Department>(`http://localhost:8080/getDepartmentById/`+ id);
     }
 
     public createDepartment(formData:any):any{
         return  this.http.post('http://localhost:8080/createDepartments', formData).subscribe(
             (response) => {
                 console.log('Успешно отправлено!', response);
+                this.router.navigate(['/department-page']);
+            },
+            (error) => {
+                console.error('Ошибка отправки данных:', error);
+                // Можно добавить обработку ошибок при отправке данных
+            }
+        );
+    }
+
+    public deleteDepartment(id:String|null):any{
+        return  this.http.delete('http://localhost:8080/deleteDepartment/' + id).subscribe(
+            (response) => {
+                console.log('Успешно удалено!', response);
                 this.router.navigate(['/department-page']);
             },
             (error) => {
