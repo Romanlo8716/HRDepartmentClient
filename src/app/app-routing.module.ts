@@ -12,6 +12,7 @@ import { DepartmentCreateComponent } from './department-page/department-create/d
 import { WorkerCreateComponent } from './worker-page/worker-create/worker-create.component';
 import { DepartmentDeleteComponent } from './department-page/department-delete/department-delete.component';
 import { AdressofdepartmentDeleteComponent } from './adressofdepartment-page/adressofdepartment-delete/adressofdepartment-delete.component';
+import { PostDeleteComponent } from './post-page/post-delete/post-delete.component';
 
 
 const routes: Routes = [
@@ -27,10 +28,12 @@ const routes: Routes = [
 
   { path: 'post-page', component: PostPageComponent },
   { path: 'post-page/create', component: PostCreateComponent}, 
+  { path: 'post-page/delete/:id',component: PostDeleteComponent},
 
   { path: 'adressofdepartment-page', component: AdressofdepartmentPageComponent},
   { path: 'adressofdepartment-page/create', component: AdressofdepartmentCreateComponent},
   { path: 'adressofdepartment-page/delete/:id', component: AdressofdepartmentDeleteComponent}
+
 
 ];
 

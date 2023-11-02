@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <span *ngIf="post">
+    <h1>Удаление</h1>
+
+<h3>Вы действительно хотите удалить данную должность?</h3>
+<div>
+    <h4>При удалении сотрудники могут потерять свою должность!</h4>
+    <hr style="width: 1276px;" />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Должность:
+        </dt>
+        <dd class = "col-sm-10">
+            {{post.namePost}}
+        </dd>
+        <dt class = "col-sm-2">
+            Базовая ставка:
+        </dt>
+        <dd class = "col-sm-10">
+            {{post.salary}}руб.
+        </dd>
+       
+    </dl>
+    
+    <form (ngSubmit)="onSubmitDelete()"  #myForm="ngForm">
+        <input type="hidden"  id="postId" name="postId" [value]="post.id" [(ngModel)]="post.id" required/>
+        <input type="submit" value="Удалить" class="btn btn-danger" /> |
+        <a [routerLink]="['/post-page']">Вернуться назад</a>
+    </form>
+</div>
+</span>
+</body>
+</html>
