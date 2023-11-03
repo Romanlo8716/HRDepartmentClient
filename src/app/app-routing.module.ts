@@ -15,6 +15,9 @@ import { AdressofdepartmentDeleteComponent } from './adressofdepartment-page/adr
 import { PostDeleteComponent } from './post-page/post-delete/post-delete.component';
 import { WorkerAllComponent } from './worker-page/worker-all/worker-all.component';
 import { WorkerDeleteComponent } from './worker-page/worker-delete/worker-delete.component';
+import { WorkerCandidatesComponent } from './worker-page/worker-candidates/worker-candidates.component';
+import { WorkerWorkersComponent } from './worker-page/worker-workers/worker-workers.component';
+import { WorkerDismissedComponent } from './worker-page/worker-dismissed/worker-dismissed.component';
 
 
 const routes: Routes = [
@@ -25,6 +28,9 @@ const routes: Routes = [
   { path: 'worker-page/worker-description-page/:id', component: WorkerDescriptionPageComponent},
   { path: 'worker-page/all', component:WorkerAllComponent},
   { path: 'worker-page/delete/:id', component:WorkerDeleteComponent},
+  { path: 'worker-page/candidates', component:WorkerCandidatesComponent},
+  { path: 'worker-page/workers', component:WorkerWorkersComponent},
+  { path: 'worker-page/dismissed', component:WorkerDismissedComponent},
 
   { path: 'department-page', component: DepartmentPageComponent },
   { path: 'department-page/create', component: DepartmentCreateComponent},

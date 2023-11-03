@@ -16,6 +16,18 @@ export class WorkerService{
         return this.http.get<Worker>(`http://localhost:8080/getWorkerById/`+ id);
     }
 
+    public getCandidates():Observable<any>{
+        return this.http.get<any>('http://localhost:8080/getCandidates');
+    }
+
+    public getDissmised():Observable<any>{
+        return this.http.get<any>('http://localhost:8080/getDissmised');
+    }
+
+    public getWorkersOnCompany():Observable<any>{
+        return this.http.get<any>('http://localhost:8080/getWorkersOnCompany');
+    }
+
     public createWorker(formData:any):any{
         return  this.http.post('http://localhost:8080/createWorkers', formData).subscribe(
             (response) => {

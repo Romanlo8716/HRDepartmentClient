@@ -20,6 +20,9 @@ import { PostDeleteComponent } from './post-page/post-delete/post-delete.compone
 import { WorkerDeleteComponent } from './worker-page/worker-delete/worker-delete.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { WorkerAllComponent } from './worker-page/worker-all/worker-all.component';
+import { WorkerCandidatesComponent } from './worker-page/worker-candidates/worker-candidates.component';
+import { WorkerWorkersComponent } from './worker-page/worker-workers/worker-workers.component';
+import { WorkerDismissedComponent } from './worker-page/worker-dismissed/worker-dismissed.component';
 
 
 
@@ -41,7 +44,10 @@ import { WorkerAllComponent } from './worker-page/worker-all/worker-all.componen
     AdressofdepartmentDeleteComponent,
     PostDeleteComponent,
     WorkerDeleteComponent,
-    WorkerAllComponent
+    WorkerAllComponent,
+    WorkerCandidatesComponent,
+    WorkerWorkersComponent,
+    WorkerDismissedComponent
   ],
   imports: [
     BrowserModule,

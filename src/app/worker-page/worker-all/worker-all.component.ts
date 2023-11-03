@@ -41,6 +41,8 @@ export class WorkerAllComponent {
      })
    }
 
+   
+
    setStatus(worker:Worker, depAndPostofWorkers:DepartmentsAndPostsOfWorker[]):string{
      
      status:String;
@@ -49,22 +51,36 @@ export class WorkerAllComponent {
       status="Уволен"
      }
      else{
-      if(depAndPostofWorkers.length>0){
-        for( const dep of depAndPostofWorkers){
-          if(worker.id==dep.worker.id){
-            status= "Сотрудник"
-            break
+      if(depAndPostofWorkers){
+        if(depAndPostofWorkers.length>0){
+          for( const dep of depAndPostofWorkers){
+            if(worker.id==dep.worker.id){
+              status= "Сотрудник"
+              break
+            }
+            else{
+              status= "Кандидат"
+            }
           }
-          else{
-            status= "Кандидат"
-          }
-        }
-       }
-       else{
+         }
+         else{
+          status="Кандидат"
+         }
+      }
+      else{
         status="Кандидат"
-       }
+      }
      }
 
            return status
    }
+
+   checkWorkers():Number{
+    if(this.workers){
+      return this.workers.length
+    }
+    else{
+      return 0
+    }
+ }
 }

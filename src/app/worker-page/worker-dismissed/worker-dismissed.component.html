@@ -6,8 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-
-    <h3 style="text-align:center;">Все сотрудники</h3>
+    <h3 style="text-align:center;">Все кандидаты</h3>
     <h5 style="text-align:center;">Общее количество: {{checkWorkers()}}</h5>
 
     <hr style="width:100px; margin: auto;" />
@@ -17,7 +16,7 @@
     </p>
     <div class="searchDescWorkerAllWorkers">
         <a [routerLink]="['/worker-page/all']" style="text-decoration:none;">
-            <div class="DepWorker1"><div style="margin-top:5px;">Все сотрудники</div></div>
+            <div class="DepWorker"><div style="margin-top:5px;">Все сотрудники</div></div>
         </a>
         <a [routerLink]="['/worker-page/candidates']" style="text-decoration:none;">
             <div class="DepWorker"><div style="margin-top:5px;">Кандидаты</div></div>
@@ -26,7 +25,7 @@
             <div class="DepWorker"><div style="margin-top:5px;">Сотрудники компании</div></div>
         </a>
         <a [routerLink]="['/worker-page/dismissed']" style="text-decoration:none;">
-            <div class="DepWorker"><div style="margin-top:5px;">Уволенные сотрудники</div></div>
+            <div class="DepWorker1"><div style="margin-top:5px;">Уволенные сотрудники</div></div>
         </a>
 
 
@@ -64,17 +63,15 @@
                     <th>
                         Телефон
                     </th>
-                    <th>
-                        Статус
-                    </th>
+                   
                     <th>
 
                     </th>
                 </tr>
             </thead>
-            <tbody *ngIf="workers">
-                
-                    <tr *ngFor="let worker of workers">
+            <tbody *ngIf="dissmised">
+                  
+                    <tr *ngFor="let worker of dissmised">
                         <td>
                             {{worker.surname}}
                         </td>
@@ -89,34 +86,7 @@
                         </td>
                         <td>
                             {{worker.phone}}
-                        </td>
-                        <td >
-                            <div *ngIf="setStatus(worker, departmentsAndPostsOfWorkers)=='Кандидат'" >
-                                <span style="color:green">Кандидат</span>
-                            </div>
-                         
-                            <div *ngIf="setStatus(worker, departmentsAndPostsOfWorkers)=='Уволен'" >
-                                <span style="color:red">Уволен</span>
-                            </div>
-
-                            <div *ngIf="setStatus(worker, departmentsAndPostsOfWorkers)=='Сотрудник'" >
-                                <span style="color:blue">Сотрудник</span>
-                            </div>
-                        </td>
-                       
-                           
-                              
-                                <div *ngIf="worker.dismiss==false; else dismissTrue">
-                               
-                                <td>
-                                    <a asp-action="Edit" asp-route-id="@item.Id">Изменить</a> |
-                                    <a [routerLink]="['/worker-page/worker-description-page', worker.id]">Подробнее</a> |
-                                    <a asp-action="Dismiss" asp-route-id="@item.Id">Уволить</a>
-                                </td>
-                               </div>
-                            
-                               <ng-template #dismissTrue>
-                            
+                        </td>     
                               
                                     <td>
                                         <a asp-action="Recover" asp-route-id="@item.Id">Восстановить</a> |
@@ -124,17 +94,10 @@
                                         <a [routerLink]="['/worker-page/delete', worker.id]">Удалить</a>
                                     </td>
                              
-
-                               </ng-template>
-                                
-
-                          
-                        
                     </tr>
-                
+              
             </tbody>
         </table>
     </div>
-
 </body>
 </html>
