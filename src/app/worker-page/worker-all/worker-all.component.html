@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<span *ngIf="workers && departmentsAndPostsOfWorkers">
+    <h3 style="text-align:center;">Все сотрудники</h3>
+    <h5 style="text-align:center;">Общее количество: {{workers.length}}</h5>
+
+    <hr style="width:100px; margin: auto;" />
+
+    <p style="text-align:center;">
+        <a asp-action="Create">Добавить сотрудника</a>
+    </p>
+    <div class="searchDescWorkerAllWorkers">
+        <a asp-action="IndexAllWorkers" style="text-decoration:none;">
+            <div class="DepWorker1"><div style="margin-top:5px;">Все сотрудники</div></div>
+        </a>
+        <a asp-action="GetCandidates" style="text-decoration:none;">
+            <div class="DepWorker"><div style="margin-top:5px;">Кандидаты</div></div>
+        </a>
+        <a asp-action="GetWorkersOfCompany" style="text-decoration:none;">
+            <div class="DepWorker"><div style="margin-top:5px;">Сотрудники компании</div></div>
+        </a>
+        <a asp-action="GetDismissWorkers" style="text-decoration:none;">
+            <div class="DepWorker"><div style="margin-top:5px;">Уволенные сотрудники</div></div>
+        </a>
+
+
+    </div>
+    <br>
+     <div class="searchDescWorker">
+        <div style="display:inline-block; margin-left:80px">
+            <form method="get" asp-action="IndexAllSearch">
+                &nbsp;  Фамилия: <input type="text" name="surname" /> &nbsp;
+                Имя: <input type="text" name="name" /> &nbsp;
+                Отчество: <input type="text" name="middlename" /> &nbsp;
+                <input type="submit" class="btn btn-primary" value="Найти" style="width:100px"/>
+            </form>
+        </div>
+     </div>
+
+    <br>
+              
+    <div  class="middle">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        Фамилия
+                    </th>
+                    <th>
+                        Имя
+                    </th>
+                    <th>
+                        Отчество
+                    </th>
+                    <th>
+                        Пол
+                    </th>
+                    <th>
+                        Телефон
+                    </th>
+                    <th>
+                        Статус
+                    </th>
+                    <th>
+
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+              
+                    <tr *ngFor="let worker of workers">
+                        <td>
+                            {{worker.surname}}
+                        </td>
+                        <td>
+                            {{worker.name}}
+                        </td>
+                        <td>
+                            {{worker.patronymic}}
+                        </td>
+                        <td>
+                            {{worker.gender}}
+                        </td>
+                        <td>
+                            {{worker.phone}}
+                        </td>
+                        <td >
+                            <div *ngIf="setStatus(worker, departmentsAndPostsOfWorkers)=='Кандидат'" >
+                                <span style="color:green">Кандидат</span>
+                            </div>
+                         
+                            <div *ngIf="setStatus(worker, departmentsAndPostsOfWorkers)=='Уволен'" >
+                                <span style="color:red">Уволен</span>
+                            </div>
+
+                            <div *ngIf="setStatus(worker, departmentsAndPostsOfWorkers)=='Сотрудник'" >
+                                <span style="color:blue">Сотрудник</span>
+                            </div>
+                        </td>
+                       
+                           
+                              
+                                <div *ngIf="worker.dismiss==false; else dismissTrue">
+                               
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@item.Id">Изменить</a> |
+                                    <a [routerLink]="['/worker-page/worker-description-page', worker.id]">Подробнее</a> |
+                                    <a asp-action="Dismiss" asp-route-id="@item.Id">Уволить</a>
+                                </td>
+                               </div>
+                            
+                               <ng-template #dismissTrue>
+                            
+                              
+                                    <td>
+                                        <a asp-action="Recover" asp-route-id="@item.Id">Восстановить</a> |
+                                        <a [routerLink]="['/worker-page/worker-description-page', worker.id]">Подробнее</a> |
+                                        <a [routerLink]="['/worker-page/delete', worker.id]">Удалить</a>
+                                    </td>
+                             
+
+                               </ng-template>
+                                
+
+                          
+                        
+                    </tr>
+                
+            </tbody>
+        </table>
+    </div>
+</span>
+</body>
+</html>

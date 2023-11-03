@@ -17,6 +17,9 @@ import { WorkerCreateComponent } from './worker-page/worker-create/worker-create
 import { DepartmentDeleteComponent } from './department-page/department-delete/department-delete.component';
 import { AdressofdepartmentDeleteComponent } from './adressofdepartment-page/adressofdepartment-delete/adressofdepartment-delete.component';
 import { PostDeleteComponent } from './post-page/post-delete/post-delete.component';
+import { WorkerDeleteComponent } from './worker-page/worker-delete/worker-delete.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { WorkerAllComponent } from './worker-page/worker-all/worker-all.component';
 
 
 
@@ -37,12 +40,15 @@ import { PostDeleteComponent } from './post-page/post-delete/post-delete.compone
     DepartmentDeleteComponent,
     AdressofdepartmentDeleteComponent,
     PostDeleteComponent,
+    WorkerDeleteComponent,
+    WorkerAllComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   
   providers: [],

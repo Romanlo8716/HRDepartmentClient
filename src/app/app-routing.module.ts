@@ -13,6 +13,8 @@ import { WorkerCreateComponent } from './worker-page/worker-create/worker-create
 import { DepartmentDeleteComponent } from './department-page/department-delete/department-delete.component';
 import { AdressofdepartmentDeleteComponent } from './adressofdepartment-page/adressofdepartment-delete/adressofdepartment-delete.component';
 import { PostDeleteComponent } from './post-page/post-delete/post-delete.component';
+import { WorkerAllComponent } from './worker-page/worker-all/worker-all.component';
+import { WorkerDeleteComponent } from './worker-page/worker-delete/worker-delete.component';
 
 
 const routes: Routes = [
@@ -21,6 +23,8 @@ const routes: Routes = [
   { path: 'worker-page', component: WorkerPageComponent },
   { path: 'worker-page/create', component: WorkerCreateComponent},
   { path: 'worker-page/worker-description-page/:id', component: WorkerDescriptionPageComponent},
+  { path: 'worker-page/all', component:WorkerAllComponent},
+  { path: 'worker-page/delete/:id', component:WorkerDeleteComponent},
 
   { path: 'department-page', component: DepartmentPageComponent },
   { path: 'department-page/create', component: DepartmentCreateComponent},
