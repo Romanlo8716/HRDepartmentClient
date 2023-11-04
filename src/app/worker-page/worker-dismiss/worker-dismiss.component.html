@@ -1,0 +1,145 @@
+<span *ngIf="worker">
+    <h2 style="margin-top: 40px;margin-left: 100px;"> Вы действительно хотите уволить сотрудника?</h2>
+    <hr style="width: 1276px;margin-left: 100px;">
+    <h2 class="nameWorker">{{worker.surname}}  {{worker.name}}  {{worker.patronymic}}</h2>
+    
+    
+    
+    <div class="ourInform">
+    
+        <div class="boxImage">
+    
+            <input type="hidden" />
+          
+                <img class="image"
+                     >
+            
+    
+        </div>
+    
+        <div class="lickInform">
+            <h5 class="logoLichInform">Личные данные</h5>
+            <div class="boxLichInform">
+                <div style="margin-top:15px; margin-left:15px;">
+                    <div style="color:rgb(108,112,115);display:inline-block;">Дата рождения:</div>
+                    <div style="font-size:16px; display:inline-block; margin-right:40px;float: right;">
+                        {{worker.dateOfBirth}}
+                    </div>
+                    <br>
+    
+                    <div style="color:rgb(108,112,115);display:inline-block;">Пол:</div>
+                    <div style="font-size:16px; display:inline-block;margin-right:40px;float: right;">
+                        {{worker.gender}}
+                    </div>
+                    <br>
+    
+                    <div style="color:rgb(108,112,115);display:inline-block;">Место проживания:</div>
+                    <div style="font-size:16px; display:inline-block; margin-right:40px;float: right;">
+                        {{worker.city}}, {{worker.street}}, {{worker.house}}
+                    </div>
+                    <br>
+                    <br>
+                  
+    
+                    <h6 style="text-align:center;">Данные о семье</h6>
+    
+                    <div style="color:rgb(108,112,115);display:inline-block;"> Семейное положения:</div>
+                    <div style="font-size:16px; display:inline-block; margin-right:40px;float: right;">
+                        {{worker.familyPosition}}
+                    </div>
+                    <br>
+    
+                    <div style="color:rgb(108,112,115);display:inline-block;"> Количество детей:</div>
+                    <div style="font-size:16px; display:inline-block;margin-right:40px;float: right;">
+                        {{worker.countChildren}}
+                    </div>
+                    <br>
+                     <br>
+    
+                    <h6 style="text-align:center;">Контактная информация </h6>
+    
+                    <div style="color:rgb(108,112,115);display:inline-block;"> Телефон:</div>
+                    <div style="font-size:16px; display:inline-block;margin-right:40px;float: right;">
+                        {{worker.phone}}
+                    </div>
+                    <br>
+    
+                    <div style="color:rgb(108,112,115);display:inline-block;"> Электронная почта:</div>
+                    <div style="font-size:16px; display:inline-block; margin-right:40px;float: right;">
+                        {{worker.email}}
+                    </div>
+                    <br>
+    
+                </div>
+            </div>
+        </div>
+    
+        <div class="passInform">
+            <h5 class="logoLichInform">Паспортные данные</h5>
+            <div class="boxLichInform">
+                <div style="margin-top:15px; margin-left:15px;">
+    
+                    <div style="color:rgb(108,112,115);display:inline-block;"> Серия паспорта:</div>
+                    <div style="font-size:16px; display:inline-block; margin-right:40px;float: right;">
+                        {{worker.seriesPass}}
+                    </div>
+                    <br>
+    
+                    <div style="color:rgb(108,112,115);display:inline-block;"> Номер паспорта:</div>
+                    <div style="font-size:16px; display:inline-block; margin-right:40px;float: right;">
+                        {{worker.numberPass}}
+                    </div>
+                    <br>
+    
+                    <div style="color:rgb(108,112,115);display:inline-block;">  Кем выдан:</div>
+                    <div style="font-size:16px; display:inline-block; margin-right:40px;float: right;">
+                       {{worker.issuedByWhom}}
+                    </div>
+                    <br>
+    
+                    <div style="color:rgb(108,112,115);display:inline-block;"> Дата выдачи:</div>
+                    <div style="font-size:16px; display:inline-block; margin-right:40px;float: right;">
+                        {{worker.dateOfIssue}}
+                    </div>
+                    <br>
+    
+                    <div style="color:rgb(108,112,115);display:inline-block;"> Код подразделения:</div>
+                    <div style="font-size:16px; display:inline-block; margin-right:40px;float: right;">
+                        {{worker.divisionCode}}
+                    </div>
+                    <br>
+                    <br>
+    
+                    <h6 style="text-align:center;">СНИЛС</h6>
+    
+                    <div style="color:rgb(108,112,115);display:inline-block;"> Номер СНИЛС:</div>
+                    <div style="font-size:16px; display:inline-block; margin-right:40px;float: right;">
+                        {{worker.numberSnils}}
+                    </div>
+                    <br>
+                    <br>
+                 
+                    <h6 style="text-align:center;">ИНН </h6>
+    
+                    <div style="color:rgb(108,112,115);display:inline-block;"> Номер ИНН:</div>
+                    <div style="font-size:16px; display:inline-block; margin-right:40px;float: right;">
+                        {{worker.numberInn}}
+                    </div>
+                    <br>
+    
+                
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div style="margin-top:-100px; margin-left:105px;">
+    
+        <form (ngSubmit)="onSubmitDismiss()"  #myForm="ngForm">
+            <input type="hidden" id="workerId" name="workerId" [value]="worker.id" [(ngModel)]="worker.id" required />
+            <input type="submit" value="Уволить" class="btn btn-danger" /> |
+            <a [routerLink]="['/worker-page/all']">Вернуться назад</a>
+        </form>
+    
+    </div>
+    </span>

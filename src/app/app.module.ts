@@ -23,6 +23,8 @@ import { WorkerAllComponent } from './worker-page/worker-all/worker-all.componen
 import { WorkerCandidatesComponent } from './worker-page/worker-candidates/worker-candidates.component';
 import { WorkerWorkersComponent } from './worker-page/worker-workers/worker-workers.component';
 import { WorkerDismissedComponent } from './worker-page/worker-dismissed/worker-dismissed.component';
+import { WorkerDismissComponent } from './worker-page/worker-dismiss/worker-dismiss.component';
+import { WorkerRecoveryComponent } from './worker-page/worker-recovery/worker-recovery.component';
 
 
 
@@ -47,7 +49,9 @@ import { WorkerDismissedComponent } from './worker-page/worker-dismissed/worker-
     WorkerAllComponent,
     WorkerCandidatesComponent,
     WorkerWorkersComponent,
-    WorkerDismissedComponent
+    WorkerDismissedComponent,
+    WorkerDismissComponent,
+    WorkerRecoveryComponent
   ],
   imports: [
     BrowserModule,

@@ -89,7 +89,7 @@
                         </td>     
                               
                                     <td>
-                                        <a asp-action="Recover" asp-route-id="@item.Id">Восстановить</a> |
+                                        <a [routerLink]="['/worker-page/recovery', worker.id]">Восстановить</a> |
                                         <a [routerLink]="['/worker-page/worker-description-page', worker.id]">Подробнее</a> |
                                         <a [routerLink]="['/worker-page/delete', worker.id]">Удалить</a>
                                     </td>

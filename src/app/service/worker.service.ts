@@ -45,7 +45,33 @@ export class WorkerService{
         return  this.http.delete('http://localhost:8080/deleteWorker/' + id).subscribe(
             (response) => {
                 console.log('Успешно удалено!', response);
-                this.router.navigate(['/worker-page']);
+                this.router.navigate(['/worker-page/all']);
+            },
+            (error) => {
+                console.error('Ошибка отправки данных:', error);
+                // Можно добавить обработку ошибок при отправке данных
+            }
+        );
+    }
+
+    public dismissWorker(id:String|null):any{
+        return  this.http.put('http://localhost:8080/dismissWorker/' + id, {}).subscribe(
+            (response) => {
+                console.log('Сотрудник уволен!', response);
+                this.router.navigate(['/worker-page/all']);
+            },
+            (error) => {
+                console.error('Ошибка отправки данных:', error);
+                // Можно добавить обработку ошибок при отправке данных
+            }
+        );
+    }
+
+    public recoveryWorker(id:String|null):any{
+        return  this.http.put('http://localhost:8080/recoveryWorker/' + id, {}).subscribe(
+            (response) => {
+                console.log('Сотрудник восстановлен!', response);
+                this.router.navigate(['/worker-page/all']);
             },
             (error) => {
                 console.error('Ошибка отправки данных:', error);

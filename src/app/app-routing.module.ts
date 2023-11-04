@@ -18,6 +18,8 @@ import { WorkerDeleteComponent } from './worker-page/worker-delete/worker-delete
 import { WorkerCandidatesComponent } from './worker-page/worker-candidates/worker-candidates.component';
 import { WorkerWorkersComponent } from './worker-page/worker-workers/worker-workers.component';
 import { WorkerDismissedComponent } from './worker-page/worker-dismissed/worker-dismissed.component';
+import { WorkerDismissComponent } from './worker-page/worker-dismiss/worker-dismiss.component';
+import { WorkerRecoveryComponent } from './worker-page/worker-recovery/worker-recovery.component';
 
 
 const routes: Routes = [
@@ -31,6 +33,8 @@ const routes: Routes = [
   { path: 'worker-page/candidates', component:WorkerCandidatesComponent},
   { path: 'worker-page/workers', component:WorkerWorkersComponent},
   { path: 'worker-page/dismissed', component:WorkerDismissedComponent},
+  { path: 'worker-page/dismiss/:id', component:WorkerDismissComponent},
+  { path: 'worker-page/recovery/:id', component:WorkerRecoveryComponent},
 
   { path: 'department-page', component: DepartmentPageComponent },
   { path: 'department-page/create', component: DepartmentCreateComponent},

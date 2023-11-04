@@ -111,7 +111,7 @@
                                 <td>
                                     <a asp-action="Edit" asp-route-id="@item.Id">Изменить</a> |
                                     <a [routerLink]="['/worker-page/worker-description-page', worker.id]">Подробнее</a> |
-                                    <a asp-action="Dismiss" asp-route-id="@item.Id">Уволить</a>
+                                    <a [routerLink]="['/worker-page/dismiss', worker.id]">Уволить</a>
                                 </td>
                                </div>
                             
@@ -119,7 +119,7 @@
                             
                               
                                     <td>
-                                        <a asp-action="Recover" asp-route-id="@item.Id">Восстановить</a> |
+                                        <a [routerLink]="['/worker-page/recovery', worker.id]">Восстановить</a> |
                                         <a [routerLink]="['/worker-page/worker-description-page', worker.id]">Подробнее</a> |
                                         <a [routerLink]="['/worker-page/delete', worker.id]">Удалить</a>
                                     </td>
