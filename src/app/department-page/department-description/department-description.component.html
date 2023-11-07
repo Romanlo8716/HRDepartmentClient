@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <meta charset="utf-8">
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=3d7dc5c5-e1ba-4602-85e9-09ebd053ec6c&lang=ru_RU" type="text/javascript"></script>
+<script src="/js/intlTelInput.min.js" charset="utf-8"></script>
+  
+</head>
+<body>
+    <span *ngIf="department">
+    <h1>Подробнее</h1>
+
+<div>
+    
+    <h4>Отдел: {{department.nameDepartment}}</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+           Название отдела:
+        </dt>
+        <dd class = "col-sm-10">
+           {{department.nameDepartment}}
+        </dd>
+        <dt class = "col-sm-2">
+            Телефон:
+        </dt>
+        <dd class = "col-sm-10">
+           {{department.phoneNumber}}
+        </dd>
+        <dt class = "col-sm-2">
+            Адрес отдела:
+        </dt>
+
+    </dl>
+</div>
+
+
+    <div id="map" style="width:600px; height:250px;"></div>
+  
+
+<div>
+    
+    <a [routerLink]="['/department-page/update', department.id]">Изменить</a> <span> | </span>
+    
+    
+    <a [routerLink]="['/department-page']">Вернуться назад</a>
+</div>
+<br />
+
+<table>
+    <tbody>
+
+        <tr>
+            <td>
+                <h3>Должности внутри отдела &nbsp; &nbsp;</h3>
+            </td>
+            <td>
+                <h5>
+                 
+                        <a asp-action="AddPost" asp-route-id="@ViewBag.DepId">   Добавить должность</a>
+                    
+
+                </h5>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Должность
+            </th>
+            <th>
+                Общее количество мест
+            </th>
+            <th>
+                Свободных мест
+            </th>
+            <th>
+                Занятых мест
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+      
+        <!-- @foreach (var item in Model.postsOfDepartments)
+        {
+            
+            close = 0;
+            open = 0;
+            @foreach (var item2 in ViewBag.PostsCount)
+            {
+                if (item.PostId == item2.PostId)
+                {
+                    close += 1;
+                }
+            }
+        
+            <tr>
+                <td>
+                    <a asp-controller="Posts" asp-action="Details" asp-route-id="@item.PostId">
+                        @item.Post.Title
+                    </a>
+                </td>
+                <td>
+                    @item.Count
+                </td>
+                <td>
+                    @{
+                        open = item.Count - close;
+                    }
+                 @open
+                </td>
+                <td>
+
+                    
+                    @close
+                    
+                </td>
+
+
+
+                <td>
+                    @if (User.IsInRole("multiAdmin"))
+                    {
+                        <a asp-controller="PostsOfDepartments" asp-action="Edit" asp-route-id="@item.Id">Изменить количество мест</a> <span> | </span>
+                    }
+
+                    <a asp-controller="PostsOfDepartments" asp-action="Details" asp-route-id="@item.Id">Подробнее</a>
+
+                    @if (User.IsInRole("multiAdmin"))
+                    {
+                        <span> | </span>  <a asp-controller="PostsOfDepartments" asp-action="Delete" asp-route-id="@item.Id">Удалить из отдела</a>
+                    }
+                </td>
+
+
+
+            </tr>
+
+        } -->
+    </tbody>
+</table>
+
+<table>
+    <tbody>
+
+        <tr>
+            <td>
+                <h3>Сотрудники внутри отдела &nbsp; &nbsp;</h3>
+            </td>
+            <td>
+                <h5>
+                 
+                        <a asp-action="AddWorker" asp-route-id="@ViewBag.DepId">   Добавить сотрудника</a>
+                    
+                    
+                </h5>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Сотрудник
+            </th>
+            <th>
+                Должность
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- @foreach (var item in Model.departmentsAndPostsOfWorkers)
+        {
+
+            <tr>
+                <td>
+                    
+                    <a asp-controller="Workers" asp-action="Intelligence" asp-route-id="@item.WorkerId">
+                        @item.Worker.Surname  @item.Worker.Name  @item.Worker.Middlename
+                    </a>
+                   
+                </td>
+                <td>
+                    @item.Post.Title
+                </td>
+
+            
+
+                    <td>
+                    @if (User.IsInRole("admin") || User.IsInRole("multiAdmin"))
+                    {
+                        <a asp-controller="Workers" asp-action="Edit" asp-route-id="@item.Worker.Id">Изменить</a> <span> | </span>
+                    }
+                   
+                        <a asp-controller="DepartmentsAndPostsOfWorkers" asp-action="Details" asp-route-id="@item.Id">Подробнее</a>
+
+                    @if (User.IsInRole("admin") || User.IsInRole("multiAdmin"))
+                    {
+                      <span> | </span>  <a asp-controller="DepartmentsAndPostsOfWorkers" asp-action="Delete" asp-route-id="@item.Id">Удалить из отдела</a>
+                    }
+                    </td>
+
+
+              
+            </tr>
+
+        } -->
+    </tbody>
+</table>
+</span>
+</body>
+</html>

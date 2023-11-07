@@ -1,14 +1,9 @@
-html {
-    scroll-behavior: smooth;
-}
-
 body {
-    background-color:rgb(243,243,243);
-   
+    background-color: rgb(243,243,243);
+    margin-left: 100px;
 }
-
-.wrapper {
-    
+html{
+    background-color: rgb(243,243,243);
 }
 .ourInform {
     margin-top: 50px; 

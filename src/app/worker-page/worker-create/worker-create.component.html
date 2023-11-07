@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+<div style="margin-left: 100px;">
     <h1>Добавить сотрудника</h1>
 
 <h4>Заполните все данные формы сотрудника. <span style="color:rgb(52,122,182)">(Все необязательные поля подчеркнуты)</span></h4>
@@ -114,9 +107,9 @@
 
                     <div style="color:rgb(108,112,115);display:inline-block;">Семейное положение:</div>
                     <div style="font-size:18px; display:inline-block;margin-left: 3px;">
-                        <select is="familyPosition" name="familyPosition" class="form-select" style="width:300px;" [(ngModel)]="formData.familyPosition" required>
+                        <select id="familyPosition" name="familyPosition" class="form-select" style="width:300px;" [(ngModel)]="formData.familyPosition" required>
 
-                            <option value="Холост">Не женат / Не замужем</option>
+                            <option value="Не в браке">Не в браке</option>
                             <option value="В браке">В браке</option>
                         </select>
                        
@@ -241,7 +234,7 @@
         <div class="descWorker" style="height: 250px;">
 
                 <div class="form-group">
-                    <label asp-for="DescriptionWorker" class="control-label" style="margin-bottom:5px;"></label>
+                    <label  class="control-label" style="margin-bottom:5px;"></label>
                     <textarea id="descriptionWorker" name="descriptionWorker" class="form-control" style="height: 200px;" [(ngModel)]="formData.descriptionWorker" required></textarea>
                     <span asp-validation-for="DescriptionWorker" class="text-danger"></span>
                 </div>
@@ -344,6 +337,4 @@
 <div style="margin-left: 120px; ">
     <a [routerLink]="['/worker-page']">Вернуться назад</a>
 </div>
-
-</body>
-</html>
+</div>

@@ -20,6 +20,13 @@ import { WorkerWorkersComponent } from './worker-page/worker-workers/worker-work
 import { WorkerDismissedComponent } from './worker-page/worker-dismissed/worker-dismissed.component';
 import { WorkerDismissComponent } from './worker-page/worker-dismiss/worker-dismiss.component';
 import { WorkerRecoveryComponent } from './worker-page/worker-recovery/worker-recovery.component';
+import { AdressofdepartmentUpdateComponent } from './adressofdepartment-page/adressofdepartment-update/adressofdepartment-update.component';
+import { PostUpdateComponent } from './post-page/post-update/post-update.component';
+import { DepartmentUpdateComponent } from './department-page/department-update/department-update.component';
+import { WorkerUpdateComponent } from './worker-page/worker-update/worker-update.component';
+import { AdressofdepartmentDescriptionComponent } from './adressofdepartment-page/adressofdepartment-description/adressofdepartment-description.component';
+import { PostDescriptionComponent } from './post-page/post-description/post-description.component';
+import { DepartmentDescriptionComponent } from './department-page/department-description/department-description.component';
 
 
 const routes: Routes = [
@@ -35,18 +42,25 @@ const routes: Routes = [
   { path: 'worker-page/dismissed', component:WorkerDismissedComponent},
   { path: 'worker-page/dismiss/:id', component:WorkerDismissComponent},
   { path: 'worker-page/recovery/:id', component:WorkerRecoveryComponent},
+  { path: 'worker-page/update/:id', component:WorkerUpdateComponent},
 
   { path: 'department-page', component: DepartmentPageComponent },
   { path: 'department-page/create', component: DepartmentCreateComponent},
   { path: 'department-page/delete/:id', component: DepartmentDeleteComponent},
+  { path: 'department-page/update/:id', component: DepartmentUpdateComponent},
+  { path: 'department-page/description/:id', component: DepartmentDescriptionComponent},
 
   { path: 'post-page', component: PostPageComponent },
   { path: 'post-page/create', component: PostCreateComponent}, 
   { path: 'post-page/delete/:id',component: PostDeleteComponent},
+  { path: 'post-page/update/:id', component: PostUpdateComponent},
+  { path: 'post-page/description/:id', component: PostDescriptionComponent},
 
   { path: 'adressofdepartment-page', component: AdressofdepartmentPageComponent},
   { path: 'adressofdepartment-page/create', component: AdressofdepartmentCreateComponent},
-  { path: 'adressofdepartment-page/delete/:id', component: AdressofdepartmentDeleteComponent}
+  { path: 'adressofdepartment-page/delete/:id', component: AdressofdepartmentDeleteComponent},
+  { path: 'adressofdepartment-page/update/:id', component: AdressofdepartmentUpdateComponent},
+  { path: 'adressofdepartment-page/description/:id', component:AdressofdepartmentDescriptionComponent}
 
 
 ];

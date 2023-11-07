@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Подробнее</h1>
+
+<div>
+    <h4>Адрес отдела</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Название должности:
+        </dt>
+        <dd class = "col-sm-10">
+            {{post.namePost}}
+        </dd>
+        <dt class = "col-sm-2">
+            Базовая ставка:
+        </dt>
+        <dd class = "col-sm-10">
+            {{post.salary}}
+        </dd>
+       
+    </dl>
+</div>
+<div>
+   
+        <a [routerLink]="['/post-page/update', post.id]">Изменить</a> <span> | </span>
+    
+    <a [routerLink]="['/post-page']">Вернуться назад</a>
+</div>
+</body>
+</html>

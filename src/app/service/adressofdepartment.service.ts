@@ -44,4 +44,17 @@ export class AdressOfDepartmentService{
             }
         );
     }
+
+    public updateAdressOfDepartment(id:string|any,formData:any):any{
+        return  this.http.put('http://localhost:8080/updateAdressOfDepartment/' + id, formData).subscribe(
+            (response) => {
+                console.log('Успешно изменено!', response);
+                this.router.navigate(['/adressofdepartment-page']);
+            },
+            (error) => {
+                console.error('Ошибка отправки данных:', error);
+                // Можно добавить обработку ошибок при отправке данных
+            }
+        );
+    }
 }

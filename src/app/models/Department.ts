@@ -2,9 +2,9 @@ import { AdressOfDepartment } from "./AdressOfDepartment";
 import { Worker } from "./Worker";
 
 export class Department{
-   id: Number
-   nameDepartment: String
-   phoneNumber: String
+   id: number
+   nameDepartment: string
+   phoneNumber: string
    adressOfDepartment: AdressOfDepartment
    workers: Worker[]
    

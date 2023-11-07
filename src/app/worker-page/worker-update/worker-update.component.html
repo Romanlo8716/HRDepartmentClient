@@ -1,0 +1,352 @@
+<div style="margin-left: 100px;">
+<h1>Изменить сотрудника</h1>
+
+<h4>Заполните все данные формы сотрудника. <span style="color:rgb(52,122,182)">(Все необязательные поля подчеркнуты)</span></h4>
+<hr style="width: 1276px;"/>
+
+<div class="ourInform">
+    <form (ngSubmit)="onSubmitUpdate()"  #myForm="ngForm">
+        
+        <input type="hidden"  id="workerId" name="workerId" [value]="worker.id" [(ngModel)]="worker.id" required />
+        <input type="hidden" id="dismiss" name="dismiss" [value]="false" [(ngModel)]="formData.dismiss" required/>
+        <div class="boxImage">
+
+            <div class="form-group">
+
+                <div class="mt-4">
+                    <h3>Изображение сотрудника</h3>
+                    <input type="hidden" name="Photo"  />
+                  
+                        <img class="mt-4 mb-4" width="200">
+                    
+                    <div class="form-group">
+                        <div class="mt-4">
+                            <input type="file" name="upload" class="form-control" /><br>
+                        </div>
+                    </div>
+                
+
+                </div>
+            </div>
+
+        </div>
+        <div style="margin-left:120px;">
+
+            <div class="name">
+                <div style="font-size:18px;display:inline-block;">Имя: </div>
+                <div style="font-size:18px; display:inline-block;">
+                    <input id="name" name="name" class="form-control" style="width:250px;" [value]="worker.name" [(ngModel)]="formData.name" required/>
+
+                </div>
+                <br>
+                <span  class="text-danger"></span>
+            </div>
+
+            <div class="fio">
+                <div style="font-size:18px;display:inline-block;">Фамилия:</div>
+                <div style="font-size:18px; display:inline-block;">
+                    <input id="surname" name="surname" class="form-control" style="width:250px;" [value]="worker.surname" [(ngModel)]="formData.surname" required/>
+
+                </div>
+                <br>
+                <span  class="text-danger"></span>
+            </div>
+
+            <div class="fio">
+                <div style="font-size:18px;display:inline-block;text-decoration: underline solid rgb(52,122,182)">Отчество:</div>
+                <div style="font-size:18px; display:inline-block;">
+                    <input id="patronymic" name="surnpatronymicame" class="form-control" style="width:250px;" [value]="worker.patronymic" [(ngModel)]="formData.patronymic" required/>
+
+                </div>
+                <br>
+                <span  class="text-danger"></span>
+            </div>
+
+
+
+
+        </div>
+        <div class="lickInform">
+            <h5 class="logoLichInform">Личные данные: </h5>
+            <div class="boxLichInform">
+                <div style="margin-top:15px; margin-left:15px;">
+                    <div style="color:rgb(108,112,115);display:inline-block;">Дата рождения:</div>
+                    <div style="font-size:18px; display:inline-block; margin-left:50px;">
+                        <input type="date" id="dateOfBirth" name="dateOfBirth" class="form-control" style="width:300px;" [(ngModel)]="formData.dateOfBirth" required (ngModelChange)="onDateOfBirthChange($event)"  />
+                       
+
+                    </div>
+                    <br>
+                    <span  class="text-danger"></span>
+                    <br>
+                    <div style="color:rgb(108,112,115);display:inline-block;">Пол:</div>
+                    <div style="font-size:18px; display:inline-block; margin-left:134px;">
+                        <select id="gender" name="gender" class="form-select" style="width:300px;" [(ngModel)]="formData.gender" required>
+
+                            <option [value]="worker.gender">{{worker.gender}}</option>
+                            <option [value]="onGender(worker)">{{onGender(worker)}}</option>
+                        </select>
+
+                    </div>
+
+
+
+                    <br>
+                    <br>
+                    <div>
+                        <div style="color:rgb(108,112,115);display:inline-block; position:absolute;">Место Проживания:</div>
+                        <div style="color:rgb(108,112,115);display:inline-block;margin-left:170px;">
+                            <label class="control-label">Населенный пункт</label>
+                            <input id="city" name="city" class="form-control" style="width:300px;" [value]="worker.city" [(ngModel)]="formData.city" required/>
+                            <span  class="text-danger"></span>
+                            <br>
+                            <label  class="control-label">Улица</label>
+                            <input id="street" name="street" class="form-control" style="width:300px;" [value]="worker.street" [(ngModel)]="formData.street" required/>
+                            <span  class="text-danger"></span>
+                            <br>
+                            <label  class="control-label">Дом</label>
+                            <input id="house" name="house" class="form-control" style="width:300px;" [value]="worker.house" [(ngModel)]="formData.house" required/>
+                            <span  class="text-danger"></span>
+
+                        </div>
+                    </div>
+
+
+
+
+                    <h6 style="text-align:center; margin-top:20px;">Данные о семье</h6>
+
+                    <div style="color:rgb(108,112,115);display:inline-block;">Семейное положение:</div>
+                    <div style="font-size:18px; display:inline-block;">
+                        <select id="familyPosition" name="familyPosition" class="form-select" style="width:300px;" [(ngModel)]="formData.familyPosition" required>
+
+                            <option [value]="worker.familyPosition">{{worker.familyPosition}}</option>
+                            <option [value]="onFamilyPosition(worker)">{{onFamilyPosition(worker)}}</option>
+                        </select>
+
+                    </div>
+                    <br>
+                    <br>
+
+                    <div style="color:rgb(108,112,115);display:inline-block;">Количество детей:</div>
+                    <div style="font-size:18px; display:inline-block;margin-left:30px;">
+                        <input id="countChildren" name="countChildren" class="form-control" style="width:300px;" [value]="worker.countChildren" [(ngModel)]="formData.countChildren" required/>
+
+                    </div>
+                    <br>
+                    <span  class="text-danger"></span>
+
+
+                    <h6 style="text-align:center; margin-top:20px;">Контактная информация </h6>
+
+                    <div style="color:rgb(108,112,115);display:inline-block;">Телефон:</div>
+                    <div style="font-size:18px; display:inline-block;margin-left:99px;">
+                        <input id="phone" name="phone" class="form-control" style="width:300px;" [value]="worker.phone" [(ngModel)]="formData.phone" required/>
+
+                    </div>
+                    <br>
+                    <span  class="text-danger"></span>
+
+                    <br>
+                    <div style="color:rgb(108,112,115);display:inline-block;text-decoration: underline solid rgb(52,122,182)">Электронная почта:</div>
+                    <div style="font-size:18px; display:inline-block;margin-left:20px;">
+                        <input id="email" name="email" class="form-control" style="width:300px;" [value]="worker.email" [(ngModel)]="formData.email" required/>
+
+                    </div>
+                    <br>
+                    <span  class="text-danger"></span>
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="passInform">
+            <h5 class="logoPassInform">Паспортные данные</h5>
+            <div class="boxPassInform">
+                <div style="margin-top:15px; margin-left:15px;">
+                    <div style="color:rgb(108,112,115);display:inline-block;">Серия паспорта:</div>
+                    <div style="font-size:18px; display:inline-block; margin-left:45px;">
+                        <input id="seriesPass" name="numberPass" class="form-control" style="width:300px;" [value]="worker.seriesPass" [(ngModel)]="formData.seriesPass" required/>
+
+                    </div>
+                    <br>
+                    <span class="text-danger"></span>
+                    <br>
+
+                    <div style="color:rgb(108,112,115);display:inline-block;">Номер паспорта:</div>
+                    <div style="font-size:18px; display:inline-block; margin-left:40px;">
+                        <input id="numberPass" name="numberPass" class="form-control" style="width:300px;" [value]="worker.numberPass" [(ngModel)]="formData.numberPass" required/>
+
+                    </div>
+                    <br>
+                    <span  class="text-danger"></span>
+                    <br>
+
+                    <div style="color:rgb(108,112,115);display:inline-block;">Кем выдан:</div>
+                    <div style="font-size:18px; display:inline-block; margin-left:82px;" >
+                        <input id="issuedByWhom" name="issuedByWhom" class="form-control" style="width:300px;" [value]="worker.issuedByWhom" [(ngModel)]="formData.issuedByWhom" required/>
+
+                    </div>
+                    <br>
+                    <span  class="text-danger"></span>
+                    <br>
+
+                    <div style="color:rgb(108,112,115);display:inline-block;">Дата выдачи:</div>
+                    <div style="font-size:18px; display:inline-block; margin-left:68px;">
+                        <input type="date" id="dateOfIssue" name="dateOfIssue" class="form-control" style="width:300px;" [(ngModel)]="formData.dateOfIssue" required (ngModelChange)="onDateOfBirthChange($event)"/>
+
+                    </div>
+                    <br>
+                    <span  class="text-danger"></span>
+                    <br>
+
+                    <div style="color:rgb(108,112,115);display:inline-block;">Код подразделения:</div>
+                    <div style="font-size:18px; display:inline-block; margin-left:17px;">
+                        <input id="divisionCode" name="divisionCode" class="form-control" style="width:300px;" [value]="worker.divisionCode" [(ngModel)]="formData.divisionCode" required/>
+
+                    </div>
+                    <br>
+                    <span class="text-danger"></span>
+                    <br>
+
+
+                    <h6 style="text-align:center;">СНИЛС</h6>
+
+                    <div style="color:rgb(108,112,115);display:inline-block;">Номер СНИЛС:</div>
+                    <div style="font-size:18px; display:inline-block; margin-left:64px;">
+                        <input id="numberSnils" name="numberSnils" class="form-control" style="width:300px;" [value]="worker.numberSnils" [(ngModel)]="formData.numberSnils" required/>
+
+                    </div>
+                    <br>
+                    <span  class="text-danger"></span>
+                    <br>
+
+
+
+                    <h6 style="text-align:center;">ИНН </h6>
+
+                    <div style="color:rgb(108,112,115);display:inline-block;">Номер ИНН:</div>
+                    <div style="font-size:18px; display:inline-block; margin-left:72px;">
+                        <input id="numberInn" name="numberInn" class="form-control" style="width:300px;" [value]="worker.numberInn" [(ngModel)]="formData.numberInn" required/>
+
+                    </div>
+                    <br>
+                    <span  class="text-danger"></span>
+                    <br>
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="boxDescWorker">
+            <h5 class="logoDesc">Описание сотрудника (дополнительная информация)</h5>
+            <div class="descWorker">
+
+                <div class="form-group">
+                    <label  class="control-label" style="margin-bottom:5px;"></label>
+                    <textarea id="descriptionWorker" name="descriptionWorker" class="form-control" [value]="worker.descriptionWorker" [(ngModel)]="formData.descriptionWorker" required></textarea>
+                    <span class="text-danger"></span>
+                </div>
+             
+
+            </div>
+        </div>
+
+        <div class="boxMilitaryWorker">
+            <h5 class="logoMilitary">Данные военной книги</h5>
+            <div class="militaryWorker">
+                <div style="margin-top:15px; margin-left:15px;">
+
+                 <div style="color:rgb(108,112,115);display:inline-block;">Звание:</div>
+                <div style="font-size:18px; display:inline-block; margin-left:148px;">
+                        <input id="militaryTitle" name="militaryTitle" class="form-control" style="width:300px;" [value]="worker.militaryTitle" [(ngModel)]="formData.militaryTitle" required/>
+
+                </div>
+                <br>
+                    <span asp-validation-for="military_title" class="text-danger"></span>
+                <br>
+                
+
+                <div style="color:rgb(108,112,115);display:inline-block;">Категория годности:</div>
+                <div style="font-size:18px; display:inline-block; margin-left:54px;">
+                        <select id="shelfLife" name="shelfLife" class="form-select" style="width:300px;" [(ngModel)]="formData.shelfLife" required>
+                            <option [value]="worker.shelfLife">{{worker.shelfLife}}</option>
+                            <option value="А1">А1</option>
+                            <option value="А2">А2</option>
+                            <option value="А3">А3</option>
+                            <option value="А4">А4</option>
+                            <option value="Б1">Б1</option>
+                            <option value="Б2">Б2</option>
+                            <option value="Б3">Б3</option>
+                            <option value="Б4">Б4</option>
+                            <option value="В">В</option>
+                            <option value="Г">Г</option>
+                            <option value="Д">Д</option>
+                        </select>
+
+                </div>
+                <br>
+                <span asp-validation-for="shelf_life" class="text-danger"></span>
+                <br>
+
+
+                    <div style="color:rgb(108,112,115);display:inline-block;">Категория запаса:</div>
+                    <div style="font-size:18px; display:inline-block; margin-left:72px;">
+                        <select id="stockCategory" name="stockCategory" class="form-select" style="width:300px;" [(ngModel)]="formData.stockCategory" required>
+                            <option [value]="worker.stockCategory">{{worker.stockCategory}}</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                          
+                        </select>
+
+                    </div>
+                    <br>
+                    <span asp-validation-for="stock_category" class="text-danger"></span>
+                    <br>
+
+                    <div style="color:rgb(108,112,115);display:inline-block;">Состав:</div>
+                    <div style="font-size:18px; display:inline-block; margin-left:149px;">
+                        <input id="profile" name="profile" class="form-control" style="width:300px;" [value]="worker.profile" [(ngModel)]="formData.profile" required/>
+
+                    </div>
+                    <br>
+                    <span asp-validation-for="profile" class="text-danger"></span>
+                    <br>
+
+                    <div style="color:rgb(108,112,115);display:inline-block;">ВУС:</div>
+                    <div style="font-size:18px; display:inline-block; margin-left:170px;">
+                        <input id="vus" name="vus" class="form-control" style="width:300px;" [value]="worker.vus" [(ngModel)]="formData.vus" required/>
+
+                    </div>
+                    <br>
+                    <span asp-validation-for="vus" class="text-danger"></span>
+                    <br>
+
+                    <div style="color:rgb(108,112,115);display:inline-block;">Название коммисариата:</div>
+                    <div style="font-size:18px; display:inline-block; margin-left:17px;">
+                        <input id="nameKomis" name="nameKomis" class="form-control" style="width:300px;" [value]="worker.nameKomis" [(ngModel)]="formData.nameKomis" required/>
+
+                    </div>
+                    <br>
+                    <span asp-validation-for="name_kommis" class="text-danger"></span>
+                    <br>
+
+
+
+            </div>
+            </div>
+        </div>
+        <div style="margin-left: 120px;" class="form-group">
+            <input style="margin-top:10px" type="submit" value="Изменить" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
+
+
+<div style="margin-left: 120px;">
+    <a [routerLink]="['/worker-page/all']">Вернуться назад</a>
+</div>
+</div>

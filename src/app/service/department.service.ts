@@ -43,4 +43,17 @@ export class DepartmentService{
         );
     }
 
+    public updateDepartment(id:string|any,formData:any):any{
+        return  this.http.put('http://localhost:8080/updateDepartment/' + id, formData).subscribe(
+            (response) => {
+                console.log('Успешно изменено!', response);
+                this.router.navigate(['/department-page']);
+            },
+            (error) => {
+                console.error('Ошибка отправки данных:', error);
+                // Можно добавить обработку ошибок при отправке данных
+            }
+        );
+    }
+
 }

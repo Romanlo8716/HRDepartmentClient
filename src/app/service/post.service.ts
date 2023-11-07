@@ -42,4 +42,17 @@ export class PostService{
             }
         );
     }
+
+    public updatePost(id:string|any,formData:any):any{
+        return  this.http.put('http://localhost:8080/updatePost/' + id, formData).subscribe(
+            (response) => {
+                console.log('Успешно изменено!', response);
+                this.router.navigate(['/post-page']);
+            },
+            (error) => {
+                console.error('Ошибка отправки данных:', error);
+                // Можно добавить обработку ошибок при отправке данных
+            }
+        );
+    }
 }

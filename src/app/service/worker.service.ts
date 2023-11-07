@@ -79,4 +79,17 @@ export class WorkerService{
             }
         );
     }
+
+    public updateWorker(id:string|any,formData:any):any{
+        return  this.http.put('http://localhost:8080/updateWorker/' + id, formData).subscribe(
+            (response) => {
+                console.log('Успешно изменено!', response);
+                this.router.navigate(['/worker-page/all']);
+            },
+            (error) => {
+                console.error('Ошибка отправки данных:', error);
+                // Можно добавить обработку ошибок при отправке данных
+            }
+        );
+    }
 }

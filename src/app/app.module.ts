@@ -25,8 +25,19 @@ import { WorkerWorkersComponent } from './worker-page/worker-workers/worker-work
 import { WorkerDismissedComponent } from './worker-page/worker-dismissed/worker-dismissed.component';
 import { WorkerDismissComponent } from './worker-page/worker-dismiss/worker-dismiss.component';
 import { WorkerRecoveryComponent } from './worker-page/worker-recovery/worker-recovery.component';
+import { AdressofdepartmentUpdateComponent } from './adressofdepartment-page/adressofdepartment-update/adressofdepartment-update.component';
+import { PostUpdateComponent } from './post-page/post-update/post-update.component';
+import { DepartmentUpdateComponent } from './department-page/department-update/department-update.component';
+import { WorkerUpdateComponent } from './worker-page/worker-update/worker-update.component';
+import { AdressofdepartmentDescriptionComponent } from './adressofdepartment-page/adressofdepartment-description/adressofdepartment-description.component';
+import { PostDescriptionComponent } from './post-page/post-description/post-description.component';
+import { DepartmentDescriptionComponent } from './department-page/department-description/department-description.component';
+import { AngularYandexMapsModule, YaConfig } from 'angular8-yandex-maps';
 
-
+const mapConfig: YaConfig = {
+  apikey: '3d7dc5c5-e1ba-4602-85e9-09ebd053ec6c',
+  lang: 'ru_RU',
+};
 
 
 @NgModule({
@@ -51,14 +62,22 @@ import { WorkerRecoveryComponent } from './worker-page/worker-recovery/worker-re
     WorkerWorkersComponent,
     WorkerDismissedComponent,
     WorkerDismissComponent,
-    WorkerRecoveryComponent
+    WorkerRecoveryComponent,
+    AdressofdepartmentUpdateComponent,
+    PostUpdateComponent,
+    DepartmentUpdateComponent,
+    WorkerUpdateComponent,
+    AdressofdepartmentDescriptionComponent,
+    PostDescriptionComponent,
+    DepartmentDescriptionComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    AngularYandexMapsModule.forRoot(mapConfig)
   ],
   
   providers: [],

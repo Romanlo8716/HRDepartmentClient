@@ -16,6 +16,7 @@
 
     <div class="middle">
     <tr *ngFor="let post of posts">
+        <a [routerLink]="['/post-page/description', post.id]">
         <div class="boxPost">
 
             <div class="descriptionPost">
@@ -28,7 +29,7 @@
 
               
                     <div style="display:inline-block;">
-                        <a  class="btn btn-primary" style="margin-top:-40px">Изменить</a>
+                        <a [routerLink]="['/post-page/update', post.id]" class="btn btn-primary" style="margin-top:-40px">Изменить</a>
                         <a [routerLink]="['/post-page/delete', post.id]"  class="btn btn-danger" style="margin-top:-40px; margin-left: 10px;">Удалить</a>
                     </div>
                 
@@ -36,6 +37,7 @@
             </div>
 
         </div>
+    </a>
       </tr>
       </div>
 </body>

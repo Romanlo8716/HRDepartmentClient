@@ -1,6 +1,6 @@
 export class AdressOfDepartment{
-    id: Number;
-    city: String;
-    street: String;
-    house: String;
+    id: number;
+    city: string;
+    street: string;
+    house: string;
 }

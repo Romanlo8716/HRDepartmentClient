@@ -89,7 +89,7 @@
                         </td>     
                               
                                     <td>
-                                        <a asp-action="Edit" asp-route-id="@item.Id">Изменить</a> |
+                                        <a [routerLink]="['/worker-page/update', worker.id]">Изменить</a> | |
                                         <a [routerLink]="['/worker-page/worker-description-page', worker.id]">Подробнее</a> |
                                         <a [routerLink]="['/worker-page/dismiss', worker.id]">Уволить</a> |
                                         <a asp-controller="DepartmentsAndPostsOfWorkers" asp-action="AddDepartment" asp-route-id="@item.Id">Добавить в отдел</a>

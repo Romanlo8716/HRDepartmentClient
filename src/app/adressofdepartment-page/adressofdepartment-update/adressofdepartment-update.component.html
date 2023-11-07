@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Изменить</h1>
+
+<h4>Адрес отдела</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form (ngSubmit)="onSubmitUpdate()"  #myForm="ngForm">
+            <div  class="text-danger"></div>
+            <input type="hidden"  id="adressofdepartmentId" name="adressofdepartmentId" [value]="adressofdepartment.id" [(ngModel)]="adressofdepartment.id" required />
+            <div class="form-group">
+                <label  class="control-label">Населенный пункт:</label>
+                <input id="city" name="city"  class="form-control" [value]="adressofdepartment.city" [(ngModel)]="formData.city" required/>
+                <span  class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label  class="control-label">Улица:</label>
+                <input id="street" name="street" [value]="adressofdepartment.street" class="form-control" [(ngModel)]="formData.street" required/>
+                <span  class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Дом:</label>
+                <input id="house" name="house" [value]="adressofdepartment.house" class="form-control" [(ngModel)]="formData.house" required/>
+                <span  class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Сохранить" style="margin-top:20px" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a [routerLink]="['/adressofdepartment-page']">Вернуться назад</a>
+</div>
+</body>
+</html>

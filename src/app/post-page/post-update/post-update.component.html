@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Изменить</h1>
+
+<h4>Должность компании</h4>
+<hr />
+<span *ngIf="post">
+<div class="row">
+    <div class="col-md-4">
+        <form (ngSubmit)="onSubmitUpdate()"  #myForm="ngForm">
+            <div  class="text-danger"></div>
+            <input type="hidden"  id="postId" name="postId" [value]="post.id" [(ngModel)]="post.id" required />
+            <div class="form-group">
+                <label  class="control-label">Название должности:</label>
+                <input id="namePost" name="namePost"  class="form-control" [value]="post.namePost" [(ngModel)]="formData.namePost" required/>
+                <span  class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label  class="control-label">Базовая ставка:</label>
+                <input id="salary" name="salary" [value]="post.salary" class="form-control" [(ngModel)]="formData.salary" required/>
+                <span  class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Сохранить" style="margin-top:20px" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+</span>
+<div>
+    <a [routerLink]="['/post-page']">Вернуться назад</a>
+</div>
+</body>
+</html>
