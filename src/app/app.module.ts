@@ -33,6 +33,11 @@ import { AdressofdepartmentDescriptionComponent } from './adressofdepartment-pag
 import { PostDescriptionComponent } from './post-page/post-description/post-description.component';
 import { DepartmentDescriptionComponent } from './department-page/department-description/department-description.component';
 import { AngularYandexMapsModule, YaConfig } from 'angular8-yandex-maps';
+import { DepartmentAddpostComponent } from './department-page/department-addpost/department-addpost.component';
+import { DepartmentChoosepostComponent } from './department-page/department-addpost/department-choosepost/department-choosepost.component';
+import { DepartmentUpdatepostComponent } from './department-page/department-updatepost/department-updatepost.component';
+import { DepartmentDeletepostComponent } from './department-page/department-deletepost/department-deletepost.component';
+import { DepartmentDescriptionpostComponent } from './department-page/department-descriptionpost/department-descriptionpost.component';
 
 const mapConfig: YaConfig = {
   apikey: '3d7dc5c5-e1ba-4602-85e9-09ebd053ec6c',
@@ -69,7 +74,12 @@ const mapConfig: YaConfig = {
     WorkerUpdateComponent,
     AdressofdepartmentDescriptionComponent,
     PostDescriptionComponent,
-    DepartmentDescriptionComponent
+    DepartmentDescriptionComponent,
+    DepartmentAddpostComponent,
+    DepartmentChoosepostComponent,
+    DepartmentUpdatepostComponent,
+    DepartmentDeletepostComponent,
+    DepartmentDescriptionpostComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Описание</h1>
+<span *ngIf="postOfDepartment">
+<h3></h3>
+<div>
+
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Отдел:
+         </dt>
+         <dd class = "col-sm-10">
+            {{postOfDepartment.department.nameDepartment}}
+         </dd>
+        <dt class = "col-sm-2">
+           Должность:
+        </dt>
+        <dd class = "col-sm-10">
+           {{postOfDepartment.post.namePost}}
+        </dd>
+        <dt class = "col-sm-2">
+            Количество вакансий:
+        </dt>
+        <dd class = "col-sm-10">
+            {{postOfDepartment.count}}
+        </dd>
+    </dl>
+    <br>
+    <a [routerLink]="['/department-page/updatePost/', postOfDepartment.id]">Изменить количество мест</a> <span> | </span>
+        <a [routerLink]="['/department-page/description/', postOfDepartment.department.id]">Вернуться назад</a>
+   
+</div>
+</span>
+</body>
+</html>

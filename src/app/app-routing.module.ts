@@ -27,6 +27,11 @@ import { WorkerUpdateComponent } from './worker-page/worker-update/worker-update
 import { AdressofdepartmentDescriptionComponent } from './adressofdepartment-page/adressofdepartment-description/adressofdepartment-description.component';
 import { PostDescriptionComponent } from './post-page/post-description/post-description.component';
 import { DepartmentDescriptionComponent } from './department-page/department-description/department-description.component';
+import { DepartmentAddpostComponent } from './department-page/department-addpost/department-addpost.component';
+import { DepartmentChoosepostComponent } from './department-page/department-addpost/department-choosepost/department-choosepost.component';
+import { DepartmentUpdatepostComponent } from './department-page/department-updatepost/department-updatepost.component';
+import { DepartmentDeletepostComponent } from './department-page/department-deletepost/department-deletepost.component';
+import { DepartmentDescriptionpostComponent } from './department-page/department-descriptionpost/department-descriptionpost.component';
 
 
 const routes: Routes = [
@@ -49,6 +54,11 @@ const routes: Routes = [
   { path: 'department-page/delete/:id', component: DepartmentDeleteComponent},
   { path: 'department-page/update/:id', component: DepartmentUpdateComponent},
   { path: 'department-page/description/:id', component: DepartmentDescriptionComponent},
+  { path: 'department-page/addPost/:id', component: DepartmentAddpostComponent},
+  { path: 'department-page/addPost/ChoosePost/:idDep/:idPost', component: DepartmentChoosepostComponent},
+  { path: 'department-page/updatePost/:id', component: DepartmentUpdatepostComponent},
+  { path: 'department-page/deletePost/:id', component: DepartmentDeletepostComponent},
+  { path: 'department-page/descriptionPost/:id', component: DepartmentDescriptionpostComponent},
 
   { path: 'post-page', component: PostPageComponent },
   { path: 'post-page/create', component: PostCreateComponent}, 

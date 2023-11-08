@@ -60,7 +60,7 @@
             <td>
                 <h5>
                  
-                        <a asp-action="AddPost" asp-route-id="@ViewBag.DepId">   Добавить должность</a>
+                        <a [routerLink]="['/department-page/addPost', departmentId]">   Добавить должность</a>
                     
 
                 </h5>
@@ -69,7 +69,7 @@
     </tbody>
 </table>
 
-<table class="table">
+<table class="table table-striped">
     <thead>
         <tr>
             <th>
@@ -88,64 +88,43 @@
             <th></th>
         </tr>
     </thead>
-    <tbody>
+    <tbody *ngIf="postOfDepartments">
       
-        <!-- @foreach (var item in Model.postsOfDepartments)
-        {
+       
+      
+            <tr *ngFor="let postOfDep of postOfDepartments">
+              
+                <td>
+                  {{postOfDep.post.namePost}}
+                </td>
+                <td>
+                  {{postOfDep.count}}
+                </td>
+                <td>
+                   {{openPlace(postOfDep.count, closePlace(postOfDep, depAndPostsOfWorker))}}
+                
+                </td>
+                <td>
+                   {{closePlace(postOfDep, depAndPostsOfWorker)}}
+                
+                </td>
+                <td>
+                  
+                    <a [routerLink]="['/department-page/updatePost', postOfDep.id]">Изменить количество мест</a> <span> | </span>
+                    
+
+                    <a [routerLink]="['/department-page/descriptionPost', postOfDep.id]">Подробнее</a>
+
+                    
+                    <span> | </span>  <a [routerLink]="['/department-page/deletePost', postOfDep.id]">Удалить из отдела</a>
+                    
+                </td>
+
+
             
-            close = 0;
-            open = 0;
-            @foreach (var item2 in ViewBag.PostsCount)
-            {
-                if (item.PostId == item2.PostId)
-                {
-                    close += 1;
-                }
-            }
-        
-            <tr>
-                <td>
-                    <a asp-controller="Posts" asp-action="Details" asp-route-id="@item.PostId">
-                        @item.Post.Title
-                    </a>
-                </td>
-                <td>
-                    @item.Count
-                </td>
-                <td>
-                    @{
-                        open = item.Count - close;
-                    }
-                 @open
-                </td>
-                <td>
-
-                    
-                    @close
-                    
-                </td>
-
-
-
-                <td>
-                    @if (User.IsInRole("multiAdmin"))
-                    {
-                        <a asp-controller="PostsOfDepartments" asp-action="Edit" asp-route-id="@item.Id">Изменить количество мест</a> <span> | </span>
-                    }
-
-                    <a asp-controller="PostsOfDepartments" asp-action="Details" asp-route-id="@item.Id">Подробнее</a>
-
-                    @if (User.IsInRole("multiAdmin"))
-                    {
-                        <span> | </span>  <a asp-controller="PostsOfDepartments" asp-action="Delete" asp-route-id="@item.Id">Удалить из отдела</a>
-                    }
-                </td>
-
-
-
             </tr>
 
-        } -->
+       
     </tbody>
 </table>
 

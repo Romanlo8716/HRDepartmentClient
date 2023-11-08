@@ -4,7 +4,10 @@ import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { AdressOfDepartment } from 'src/app/models/AdressOfDepartment';
 import { Department } from 'src/app/models/Department';
+import { DepartmentsAndPostsOfWorker } from 'src/app/models/DepartmentsAndPostsOfWorker';
+import { PostOfDepartment } from 'src/app/models/PostOfDepartment';
 import { DepartmentService } from 'src/app/service/department.service';
+import { DepartmentsAndPostsOfWorkerService } from 'src/app/service/deprtmentsandpostsofworker.service';
 import { ScriptService } from 'src/app/service/script.service';
 
 
@@ -14,7 +17,7 @@ import { ScriptService } from 'src/app/service/script.service';
   styleUrls: ['./department-description.component.css']
 })
 export class DepartmentDescriptionComponent {
-  constructor(private departmentService:DepartmentService, private route: ActivatedRoute,private title:Title, private http: HttpClient, private scriptService:ScriptService ){
+  constructor(private departmentService:DepartmentService, private route: ActivatedRoute,private title:Title, private scriptService:ScriptService, private departmentsAndPostsOfWorkerService:DepartmentsAndPostsOfWorkerService ){
     title.setTitle("Отдел")
 
    }
@@ -22,8 +25,10 @@ export class DepartmentDescriptionComponent {
    department:Department
    departmentId:string|null
    address:string
-
-
+   postOfDepartments:PostOfDepartment[]
+   open:number
+   close:number
+   depAndPostsOfWorker:DepartmentsAndPostsOfWorker[];
 
 
 
@@ -31,6 +36,16 @@ export class DepartmentDescriptionComponent {
     this.route.paramMap.subscribe(params => {
       this.departmentId = params.get('id');
     });
+
+    this.departmentService.getPostOfDepartment().subscribe((responce: PostOfDepartment[]) => {
+      this.postOfDepartments = responce;
+     })
+
+     this.departmentsAndPostsOfWorkerService.getDepartmentsAndPostsOfWorker().subscribe((responce: DepartmentsAndPostsOfWorker[]) => {
+      this.depAndPostsOfWorker = responce;
+     })
+
+
   
     this.departmentService.getDepartmentById(this.departmentId).subscribe((responce: Department) => {
       this.department = responce;
@@ -74,6 +89,24 @@ export class DepartmentDescriptionComponent {
   
   
       searchControl.search(this.address);
+  }
+
+  closePlace(postOfDep:PostOfDepartment, depAndPost:DepartmentsAndPostsOfWorker[]):number{
+
+     for(const item of depAndPost){
+      if(postOfDep.post.id==item.post.id){
+        this.close++;
+      }
+     }
+     if(depAndPost.length ==0){
+      this.close=0;
+     }
+     return this.close;
+  }
+
+  openPlace(all:number,close:number):number{
+     this.open=all-close;
+     return this.open;
   }
 }
 

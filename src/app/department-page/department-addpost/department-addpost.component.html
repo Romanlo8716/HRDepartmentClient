@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <span *ngIf="department">
+    <h2>Добавление в: {{department.nameDepartment}}</h2>
+
+<hr />
+
+<h2>Должности компании</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                Название
+            </th>
+            <th>
+                Начальная ставка
+            </th>
+           
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+       
+            <tr *ngFor="let post of posts">
+            
+                <td>
+                    {{post.namePost}}
+                </td>
+                <td>
+                    {{post.salary}}руб.
+                </td>
+              
+                <td>
+                    <form (ngSubmit)="onSubmitAddPost(post.id)"  #myForm="ngForm">
+                        <div class="form-group">
+                            <input type="hidden" id="departmentId" name="departmentId" [value]="department.id" [(ngModel)]="formData.departmentId" required/>
+                            <input type="hidden" id="postId" name="postId" [value]="post.id" [(ngModel)]="formData.postId" required/>
+                            <input type="submit" value="Выбрать" class="btn btn-primary" />
+                           
+                        </div>
+                    </form>
+                </td>
+            </tr>
+        
+    </tbody>
+</table>
+</span>
+</body>
+</html>

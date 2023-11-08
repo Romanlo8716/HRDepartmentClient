@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Удаление</h1>
+<span *ngIf="postOfDepartment">
+<h3>Вы действительно хотите удалить должность из отдела:  {{postOfDepartment.post.namePost}}</h3>
+<div>
+
+    <hr />
+    <dl class="row">
+       
+        <dt class = "col-sm-2">
+           Должность:
+        </dt>
+        <dd class = "col-sm-10">
+           {{postOfDepartment.post.namePost}}
+        </dd>
+        <dt class = "col-sm-2">
+            Количество вакансий:
+        </dt>
+        <dd class = "col-sm-10">
+            {{postOfDepartment.count}}
+        </dd>
+    </dl>
+    <br>
+    <form (ngSubmit)="onSubmitDeletePost()"  #myForm="ngForm">
+        <input type="hidden" id="postOfDepartmentId" name="postOfDepartmentId" [value]="postOfDepartment.id" [(ngModel)]="postOfDepartment.id" required />
+        <input type="submit" value="Удалить" class="btn btn-danger" /> |
+        <a [routerLink]="['/department-page/description/', postOfDepartment.department.id]">Вернуться назад</a>
+    </form>
+</div>
+</span>
+</body>
+</html>

@@ -1,5 +1,5 @@
 export class Post{
-    id: Number;
+    id: number;
     namePost: string;
     salary: string;
 }
