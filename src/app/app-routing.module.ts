@@ -32,6 +32,10 @@ import { DepartmentChoosepostComponent } from './department-page/department-addp
 import { DepartmentUpdatepostComponent } from './department-page/department-updatepost/department-updatepost.component';
 import { DepartmentDeletepostComponent } from './department-page/department-deletepost/department-deletepost.component';
 import { DepartmentDescriptionpostComponent } from './department-page/department-descriptionpost/department-descriptionpost.component';
+import { DepartmentAddworkerComponent } from './department-page/department-addworker/department-addworker.component';
+import { DepartmentChooseworkerComponent } from './department-page/department-chooseworker/department-chooseworker.component';
+import { DepartmentConfirmworkerComponent } from './department-page/department-confirmworker/department-confirmworker.component';
+import { WorkerAddindepartmentComponent } from './worker-page/worker-addindepartment/worker-addindepartment.component';
 
 
 const routes: Routes = [
@@ -48,6 +52,7 @@ const routes: Routes = [
   { path: 'worker-page/dismiss/:id', component:WorkerDismissComponent},
   { path: 'worker-page/recovery/:id', component:WorkerRecoveryComponent},
   { path: 'worker-page/update/:id', component:WorkerUpdateComponent},
+  { path: 'worker-page/addInDepartment/:id', component:WorkerAddindepartmentComponent},
 
   { path: 'department-page', component: DepartmentPageComponent },
   { path: 'department-page/create', component: DepartmentCreateComponent},
@@ -59,6 +64,9 @@ const routes: Routes = [
   { path: 'department-page/updatePost/:id', component: DepartmentUpdatepostComponent},
   { path: 'department-page/deletePost/:id', component: DepartmentDeletepostComponent},
   { path: 'department-page/descriptionPost/:id', component: DepartmentDescriptionpostComponent},
+  { path: 'department-page/addWorker/:id', component: DepartmentAddworkerComponent},
+  { path: 'department-page/addWorker/ChooseWorker/:idDep/:idWorker', component: DepartmentChooseworkerComponent},
+  { path: 'department-page/addWorker/ChooseWorker/ConfirmWorker/:idDep/:idWorker/:idPost', component:DepartmentConfirmworkerComponent},
 
   { path: 'post-page', component: PostPageComponent },
   { path: 'post-page/create', component: PostCreateComponent}, 

@@ -35,7 +35,7 @@
                             </div>
 
                                 <div style="display:inline-block;">
-                                    <a  class="btn btn-primary" style="margin-top:-30px;">Добавить сотрудника</a> 
+                                    <a [routerLink]="['/department-page/addWorker', department.id]" class="btn btn-primary" style="margin-top:-30px;">Добавить сотрудника</a> 
                                     <a [routerLink]="['/department-page/update', department.id]"  class="btn btn-primary" style="margin-top:-30px; margin-left: 10px;">Изменить</a>
                                     <a [routerLink]="['/department-page/delete', department.id]" class="btn btn-danger" style="margin-top:-30px; margin-left: 10px;">Удалить</a>
                                 </div>

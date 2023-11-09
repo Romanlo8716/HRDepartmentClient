@@ -38,6 +38,10 @@ import { DepartmentChoosepostComponent } from './department-page/department-addp
 import { DepartmentUpdatepostComponent } from './department-page/department-updatepost/department-updatepost.component';
 import { DepartmentDeletepostComponent } from './department-page/department-deletepost/department-deletepost.component';
 import { DepartmentDescriptionpostComponent } from './department-page/department-descriptionpost/department-descriptionpost.component';
+import { DepartmentAddworkerComponent } from './department-page/department-addworker/department-addworker.component';
+import { DepartmentChooseworkerComponent } from './department-page/department-chooseworker/department-chooseworker.component';
+import { DepartmentConfirmworkerComponent } from './department-page/department-confirmworker/department-confirmworker.component';
+import { WorkerAddindepartmentComponent } from './worker-page/worker-addindepartment/worker-addindepartment.component';
 
 const mapConfig: YaConfig = {
   apikey: '3d7dc5c5-e1ba-4602-85e9-09ebd053ec6c',
@@ -79,7 +83,11 @@ const mapConfig: YaConfig = {
     DepartmentChoosepostComponent,
     DepartmentUpdatepostComponent,
     DepartmentDeletepostComponent,
-    DepartmentDescriptionpostComponent
+    DepartmentDescriptionpostComponent,
+    DepartmentAddworkerComponent,
+    DepartmentChooseworkerComponent,
+    DepartmentConfirmworkerComponent,
+    WorkerAddindepartmentComponent
   ],
   imports: [
     BrowserModule,

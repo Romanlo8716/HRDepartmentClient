@@ -6,9 +6,11 @@ import { AdressOfDepartment } from 'src/app/models/AdressOfDepartment';
 import { Department } from 'src/app/models/Department';
 import { DepartmentsAndPostsOfWorker } from 'src/app/models/DepartmentsAndPostsOfWorker';
 import { PostOfDepartment } from 'src/app/models/PostOfDepartment';
+import { Worker } from 'src/app/models/Worker';
 import { DepartmentService } from 'src/app/service/department.service';
 import { DepartmentsAndPostsOfWorkerService } from 'src/app/service/deprtmentsandpostsofworker.service';
 import { ScriptService } from 'src/app/service/script.service';
+import { WorkerService } from 'src/app/service/worker.service';
 
 
 @Component({
@@ -27,8 +29,9 @@ export class DepartmentDescriptionComponent {
    address:string
    postOfDepartments:PostOfDepartment[]
    open:number
-   close:number
+   close:number=0
    depAndPostsOfWorker:DepartmentsAndPostsOfWorker[];
+   workersOnDepartment:DepartmentsAndPostsOfWorker[];
 
 
 
@@ -37,12 +40,16 @@ export class DepartmentDescriptionComponent {
       this.departmentId = params.get('id');
     });
 
-    this.departmentService.getPostOfDepartment().subscribe((responce: PostOfDepartment[]) => {
+    this.departmentService.getPostOfDepartmentByDepartmentId(this.departmentId).subscribe((responce: PostOfDepartment[]) => {
       this.postOfDepartments = responce;
      })
 
-     this.departmentsAndPostsOfWorkerService.getDepartmentsAndPostsOfWorker().subscribe((responce: DepartmentsAndPostsOfWorker[]) => {
+     this.departmentsAndPostsOfWorkerService.getDepartmentsAndPostsOfWorkerByDepartmentId(this.departmentId).subscribe((responce: DepartmentsAndPostsOfWorker[]) => {
       this.depAndPostsOfWorker = responce;
+     })
+
+     this.departmentService.getWorkerOnDepartmentByDepartmentId(this.departmentId).subscribe((responce: DepartmentsAndPostsOfWorker[]) => {
+      this.workersOnDepartment = responce;
      })
 
 
@@ -93,20 +100,32 @@ export class DepartmentDescriptionComponent {
 
   closePlace(postOfDep:PostOfDepartment, depAndPost:DepartmentsAndPostsOfWorker[]):number{
 
-     for(const item of depAndPost){
-      if(postOfDep.post.id==item.post.id){
-        this.close++;
-      }
-     }
-     if(depAndPost.length ==0){
+    if(depAndPost.length ==0){
       this.close=0;
      }
+     else{
+      for(const item of depAndPost){
+        if(postOfDep.post.id==item.post.id){
+          this.close +=1;
+        }
+       }
+     }
+     //console.log("id post PostOfDep:" + postOfDep.post.id);
+     
      return this.close;
   }
 
   openPlace(all:number,close:number):number{
      this.open=all-close;
      return this.open;
+  }
+
+  addclose():void{
+    this.close +=1
+  }
+
+  zeroClose():void{
+    this.close =0
   }
 }
 

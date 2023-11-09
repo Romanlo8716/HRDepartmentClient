@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Добавление в: {{department.nameDepartment}}</h2>
+
+<hr />
+
+<h2>Сотрудники компании</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                Фамилия
+            </th>
+            <th>
+                Имя
+            </th>
+            <th>
+                Отчество
+            </th>
+            <th>
+                Пол
+            </th>
+            <th>
+                Телефон
+            </th>
+            <th>
+                Отделы
+            </th>
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+    <tbody *ngIf="workers">
+     
+            <tr *ngFor="let worker of workers">
+                <td>
+                    {{worker.surname}}
+                </td>
+                <td>
+                    {{worker.name}}
+                </td>
+                <td>
+                    {{worker.patronymic}}
+                </td>
+                <td>
+                    {{worker.gender}}
+                </td>
+                <td>
+                    {{worker.phone}}
+                </td>    
+                <td>
+                    {{getDepartmentAndPostOfWorker(worker, departmentsAndPostsOfWorkers)}}
+                </td>  
+                      
+                            <td>
+                                <form (ngSubmit)="onSubmitAddWorker(worker.id)"  #myForm="ngForm">
+                                    <div class="form-group">
+                                        <input type="hidden" name="departmentId" [value]="department.id" />
+                                        <input type="hidden" name="workerId" [value]="worker.id" />
+                                        <input type="submit" value="Выбрать" class="btn btn-primary" />
+                                        <a [routerLink]="['/worker-page/update/', worker.id]" style="color:green">Изменить</a>
+                                    </div>
+                                </form>
+                            </td>
+                     
+            </tr>
+       
+    </tbody>
+</table>
+
+<h2>Кандидаты</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                Фамилия
+            </th>
+            <th>
+                Имя
+            </th>
+            <th>
+                Отчество
+            </th>
+            <th>
+                Пол
+            </th>
+            <th>
+                Телефон
+            </th>
+           
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+    <tbody *ngIf="candidates">
+          
+            <tr *ngFor="let worker of candidates">
+                <td>
+                    {{worker.surname}}
+                </td>
+                <td>
+                    {{worker.name}}
+                </td>
+                <td>
+                    {{worker.patronymic}}
+                </td>
+                <td>
+                    {{worker.gender}}
+                </td>
+                <td>
+                    {{worker.phone}}
+                </td>     
+                      
+                            <td>
+                                <form (ngSubmit)="onSubmitAddWorker(worker.id)"  #myForm="ngForm">
+                                    <div class="form-group">
+                                        <input type="hidden" name="departmentId" [value]="department.id" />
+                                        <input type="hidden" name="workerId" [value]="worker.id" />
+                                        <input type="submit" value="Выбрать" class="btn btn-primary" />
+                                        <a [routerLink]="['/worker-page/update/', worker.id]" style="color:green">Изменить</a>
+                                    </div>
+                                </form>
+                            </td>
+                     
+            </tr>
+      
+    </tbody>
+</table>
+
+</body>
+</html>

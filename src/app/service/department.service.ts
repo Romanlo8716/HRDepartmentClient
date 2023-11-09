@@ -20,12 +20,20 @@ export class DepartmentService{
         return this.http.get<any>(`http://localhost:8080/getPostOfDepartment`);
     }
 
+    public getPostOfDepartmentByDepartmentId(departmentId:String|null):Observable<any>{
+        return this.http.get<any>(`http://localhost:8080/getPostOfDepartmentByDepartmentId/` + departmentId);
+    }
+
     public getPostOfDepartmentById(id:String|null):any{
         return this.http.get<PostOfDepartment>(`http://localhost:8080/getPostOfDepartmentById/` + id);
     }
 
     public getDepartmentById(id:String|null):any{
         return this.http.get<Department>(`http://localhost:8080/getDepartmentById/`+ id);
+    }
+
+    public getWorkerOnDepartmentByDepartmentId(id:String|null):Observable<any>{
+        return this.http.get<any>(`http://localhost:8080/getWorkerOnDepartmentByDepartmentId/` + id);
     }
 
     public createDepartment(formData:any):any{
@@ -100,8 +108,29 @@ export class DepartmentService{
     this.router.navigate(['/department-page/addPost/ChoosePost/', formData.departmentId, formData.postId]);
    }
 
+   public addWorkerOnDepartment(formData:any):void{
+    this.router.navigate(['/department-page/addWorker/ChooseWorker/', formData.departmentId, formData.workerId]);
+   }
+
+   public chooseWorkerOnDepartment(formData:any):void{
+    this.router.navigate(['/department-page/addWorker/ChooseWorker/ConfirmWorker/', formData.department.id, formData.worker.id, formData.post.id]);
+   }
+
    public createPostOnDepartment(formData:any):any{
     return  this.http.post('http://localhost:8080/createPostOnDepartment', formData).subscribe(
+        (response) => {
+            console.log('Успешно отправлено!', response);
+            this.router.navigate(['/department-page/description/' + formData.department.id]);
+        },
+        (error) => {
+            console.error('Ошибка отправки данных:', error);
+            // Можно добавить обработку ошибок при отправке данных
+        }
+    );
+}
+
+public confirmWorkerOnDepartment(formData:any):any{
+    return  this.http.post('http://localhost:8080/confirmWorkerOnDepartment', formData).subscribe(
         (response) => {
             console.log('Успешно отправлено!', response);
             this.router.navigate(['/department-page/description/' + formData.department.id]);

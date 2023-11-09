@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Добавление сотрудника: {{worker.surname}} {{worker.name}} {{worker.patronymic}}</h2>
+
+    <hr />
+
+    <h1>Отделы</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    Название отдела
+                </th>
+                <th>
+                    Телефон
+                </th>
+                <th>
+                    Адрес отдела
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+           
+                <tr *ngFor="let department of departments">
+                    <td>
+                        {{department.nameDepartment}}
+                    </td>
+                    <td>
+                        {{department.phoneNumber}}
+                    </td>
+                    <td>
+                        {{department.adressOfDepartment.city}}
+                        {{department.adressOfDepartment.street}}
+                        {{department.adressOfDepartment.house}}
+                    </td>
+                  
+                        <td>
+                            <form (ngSubmit)="onSubmitAddWorkerInDepartment(department.id)"  #myForm="ngForm">
+                                <div class="form-group">
+                                    <input type="hidden" name="departmentId" [value]="department.id" />
+                                    <input type="hidden" name="workerId" [value]="worker.id" />
+                                    <input type="submit" value="Выбрать" class="btn btn-primary" />
+                                    <a [routerLink]="['/department-page/update/', department.id]" style="color:green">Изменить</a>
+                                </div>
+                            </form>
+                        </td>
+                    
+                    
+                </tr>
+            
+        </tbody>
+    </table>
+</body>
+</html>

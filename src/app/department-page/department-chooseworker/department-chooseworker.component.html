@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Добавление в:{{department.nameDepartment}}</h2>
+
+<h2>Работника: {{worker.surname}} {{worker.name}} {{worker.patronymic}}</h2>
+<hr />
+
+    <h2>Выберите должность работнику внутри отдела:</h2>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    Должность
+                </th>
+                <th>
+                    Зарплата
+                </th>
+                <th>
+                    Свободных мест
+                </th>
+                <th>
+                  
+                </th>
+    
+               
+            </tr>
+        </thead>
+        <tbody *ngIf="postOfDepartments">
+          
+           
+          
+                <tr *ngFor="let postOfDep of postOfDepartments">
+                    {{zeroClose()}}
+                    <td>
+                      {{postOfDep.post.namePost}}
+                    </td>
+                    <td>
+                      {{postOfDep.post.salary}}
+                    </td>
+                    <td>
+                       {{openPlace(postOfDep.count, closePlace(postOfDep, depAndPostsOfWorker))}}
+                    
+                    </td>
+                    <td>
+                      
+                        <form (ngSubmit)="onSubmitChooseWorker(postOfDep.post.id)"  #myForm="ngForm" >
+                            <div class="form-group">
+                                <input type="hidden" id="departmentId" name="departmentId" [value]="department.id" [(ngModel)]="formData.department.id" required />
+                                <input type="hidden" id="workerId" name="workerId" [value]="worker.id" [(ngModel)]="formData.worker.id" required />
+                                <input type="hidden" id="postId" name="postId" [value]="postOfDep.post.id" [(ngModel)]="formData.post.id" required />
+                               
+                                <input type="submit" value="Выбрать" class="btn btn-primary" />
+                                <a [routerLink]="['/post-page/update/', postOfDep.post.id]">Изменить</a>
+                            </div>
+    
+    
+    
+                        </form>
+                        
+                    </td>
+    
+    
+                
+                </tr>
+    
+           
+        </tbody>
+    </table>
+</body>
+</html>

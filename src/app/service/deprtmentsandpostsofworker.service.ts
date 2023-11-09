@@ -15,6 +15,10 @@ export class DepartmentsAndPostsOfWorkerService{
         return this.http.get<any>(`http://localhost:8080/getGroupByDepartmentDepartmentsAndPostsOfWorker`);
     }
 
+    public getDepartmentsAndPostsOfWorkerByDepartmentId(id:string|null):Observable<any>{
+        return this.http.get<any>(`http://localhost:8080/getDepartmentsAndPostsOfWorkerByDepartmentId/` + id);
+    }
+
     
     
 
