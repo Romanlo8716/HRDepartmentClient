@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Данные трудовой книги</h1>
+<input type="hidden" name="WorkerId" value="@ViewBag.WorkerId" />
+<div class="form-group">
+    <h4>
+        <label style="width:700px">Сотрудник: <a [routerLink]="['/worker-page/worker-description-page/', worker.id]">{{worker.surname}} {{worker.name}} {{worker.patronymic}}</a></label>
+    </h4>
+</div>
+
+    <p>
+    <a [routerLink]="['/worker-page/laborBook/add/', worker.id]">Добавить новые данные</a>
+    </p>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Дата записи
+            </th>
+            <th>
+                Наименование работы
+            </th>
+            <th>
+                Сведения
+            </th>
+            <th>
+                Название документа
+            </th>
+            <th>
+               Номер документа
+            </th>
+          
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr *ngFor="let laborBook of laborBooks">
+            <td>
+                {{formatDate(laborBook.dateRecord)}}
+            </td>
+            <td>
+                {{laborBook.nameWork}}
+            </td>
+            <td>
+                {{laborBook.informationAboutWork}}
+            </td>
+            <td>
+                {{laborBook.nameDocument}}
+            </td>
+            <td>
+                {{laborBook.numberDocument}}
+            </td>
+                
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Изменить</a> |
+                <a [routerLink]="['/worker-page/laborBook/delete/', laborBook.id]">Удалить</a>
+                    </td>
+               
+        </tr>
+
+    </tbody>
+</table>
+</body>
+</html>

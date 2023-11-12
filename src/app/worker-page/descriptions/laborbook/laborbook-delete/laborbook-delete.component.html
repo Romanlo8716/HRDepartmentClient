@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Удаление</h1>
+
+<h3>Вы действительно хотите удалить данную запись?</h3>
+<div>
+    <h4>Данные из трудовой книги</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+           Дата записи
+        </dt>
+        <dd class = "col-sm-10">
+            {{laborBook.dateRecord}}
+        </dd>
+        <dt class = "col-sm-2">
+            Наименование работы
+        </dt>
+        <dd class = "col-sm-10">
+            {{laborBook.nameWork}}
+        </dd>
+        <dt class = "col-sm-2">
+           Сведения
+        </dt>
+        <dd class = "col-sm-10">
+           {{laborBook.informationAboutWork}}
+        </dd>
+        <dt class = "col-sm-2">
+           Название документа
+        </dt>
+        <dd class = "col-sm-10">
+            {{laborBook.nameDocument}}
+        </dd>
+        <dt class = "col-sm-2">
+            Номер документа
+        </dt>
+        <dd class = "col-sm-10">
+           {{laborBook.numberDocument}}
+        </dd>
+        <dt class = "col-sm-2">
+            Сотрудник
+        </dt>
+        <dd class = "col-sm-10">
+           {{laborBook.worker.surname}} {{laborBook.worker.name}} {{laborBook.worker.patronymic}}
+        </dd>
+    </dl>
+
+    <form (ngSubmit)="onSubmitDelete()"  #myForm="ngForm">
+        <input type="hidden" id="laborBookId" name="laborBookId" [value]="laborBook.id" [(ngModel)]="laborBook.id" required />
+        <input type="submit" value="Удалить" class="btn btn-danger" /> |
+        <a [routerLink]="['/worker-page/worker-description-page/', laborBook.worker.id]">Вернуться назад</a>
+    </form>
+</div>
+</body>
+</html>

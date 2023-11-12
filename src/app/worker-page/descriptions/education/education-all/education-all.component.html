@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Данные об образованиях</h1>
+<input type="hidden" name="WorkerId" value="@ViewBag.WorkerId" />
+<div class="form-group">
+    <h4>
+        <label style="width:700px">Сотрудник: <a [routerLink]="['/worker-page/worker-description-page/', worker.id]">{{worker.surname}} {{worker.name}} {{worker.patronymic}}</a></label>
+    </h4>
+</div>
+
+    <p>
+    <a [routerLink]="['/worker-page/education/add/', worker.id]">Добавить новые данные</a>
+    </p>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Серия диплома:
+            </th>
+            <th>
+                Номер диплома:
+            </th>
+            <th>
+                Специальность
+            </th>
+            <th>
+                Дата выдачи
+            </th>
+          
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr *ngFor="let education of educations">
+            <td>
+                {{education.seriesDiploma}}
+            </td>
+            <td>
+                {{education.numberDiploma}}
+            </td>
+            <td>
+                {{education.special}}
+            </td>
+            <td>
+                {{formatDate(education.dateYearEnd)}}
+            </td>
+                
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Изменить</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+            </td>
+               
+        </tr>
+
+    </tbody>
+</table>
+</body>
+</html>

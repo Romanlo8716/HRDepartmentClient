@@ -1,9 +1,11 @@
+import { Worker } from "./Worker"
+
 export class LaborBook{
     id:Number
-    dateRecord:Date
-    nameWork:String
-    informationAboutWork:String
-    nameDocument:String
-    numberDocument:String
-    
+    dateRecord:string
+    nameWork:string
+    informationAboutWork:string
+    nameDocument:string
+    numberDocument:string
+    worker:Worker
 }

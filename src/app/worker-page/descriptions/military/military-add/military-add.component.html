@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Внесение данных военного билета</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form (ngSubmit)="onSubmitMilitary()"  #myForm="ngForm">
+
+            <div class="form-group">
+                <h4>
+                    <label style="width:700px">Сотрудник: {{worker.surname}}  {{worker.name}} {{worker.patronymic}}</label>
+                </h4>
+
+            </div>
+            <div class="form-group" type="hidden">
+               
+                
+               
+            </div>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label  class="control-label">Звание</label>
+                <input id="militaryTitle" name="militaryTitle" class="form-control" style="width:300px;" [value]="worker.militaryTitle" [(ngModel)]="formData.militaryTitle" required />
+                <span asp-validation-for="military_title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Категория годности</label>
+                <select id="shelfLife" name="shelfLife" class="form-select" style="width:300px;"  [(ngModel)]="formData.shelfLife" required>
+                    <option [value]="worker.shelfLife">{{worker.shelfLife}}</option>
+                    <option value="А1">А1</option>
+                    <option value="А2">А2</option>
+                    <option value="А3">А3</option>
+                    <option value="А4">А4</option>
+                    <option value="Б1">Б1</option>
+                    <option value="Б2">Б2</option>
+                    <option value="Б3">Б3</option>
+                    <option value="Б4">Б4</option>
+                    <option value="В">В</option>
+                    <option value="Г">Г</option>
+                    <option value="Д">Д</option>
+                </select>
+                <span asp-validation-for="shelf_life" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Категория запаса</label>
+                <select id="stockCategory" name="stockCategory" class="form-select" style="width:300px;"  [(ngModel)]="formData.stockCategory" required>
+                    <option [value]="worker.stockCategory">{{worker.stockCategory}}</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+
+                </select>
+                <span asp-validation-for="stock_category" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label  class="control-label">Состав</label>
+                <input class="form-control" id="profile" name="profile" [value]="worker.profile" [(ngModel)]="formData.profile" required/>
+                <span asp-validation-for="profile" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">ВУС</label>
+                <input class="form-control" id="vus" name="vus" [value]="worker.vus" [(ngModel)]="formData.vus" required/>
+                <span asp-validation-for="vus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label  class="control-label">Название коммисариата</label>
+                <input class="form-control" id="nameKomis" name="nameKomis" [value]="worker.nameKomis" [(ngModel)]="formData.nameKomis" required/>
+                <span asp-validation-for="name_kommis" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Внести" style="margin-top: 20px" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <div>
+        <a [routerLink]="['/worker-page/worker-description-page/', worker.id]">Вернуться назад</a>
+    </div>
+</div>
+</body>
+</html>

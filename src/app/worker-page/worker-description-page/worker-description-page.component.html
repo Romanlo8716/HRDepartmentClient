@@ -83,7 +83,7 @@
                 <div style="margin-top:15px; margin-left:15px;">
                     <div style="color:rgb(108,112,115);display:inline-block;">Дата рождения:</div>
                     <div style="font-size:16px; display:inline-block; margin-right:40px;float: right;">
-                        {{worker.dateOfBirth}}
+                        {{formatDate(worker.dateOfBirth)}}
                     </div>
                     <br>
     
@@ -159,7 +159,7 @@
     
                     <div style="color:rgb(108,112,115);display:inline-block;"> Дата выдачи:</div>
                     <div style="font-size:16px; display:inline-block; margin-right:40px;float: right;">
-                        {{worker.dateOfIssue}}
+                        {{formatDate(worker.dateOfIssue)}}
                     </div>
                     <br>
     
@@ -280,8 +280,8 @@
                                 
                                     <td>
                                    
-                                    <a asp-controller="DepartmentsAndPostsOfWorkers" asp-action="Details" asp-route-id="@item.Id">Подробнее</a> |
-                                    <a asp-controller="DepartmentsAndPostsOfWorkers" asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+                                  
+                                    <a [routerLink]="['/worker-page/departmentsandpostsofworker/delete/', item.id]">Удалить</a>
                                     </td>
                                 
                                 
@@ -303,10 +303,8 @@
                         <td>
                             <h5>
                            
-                                <a asp-controller="Militarys" asp-action="AddMilitary" asp-route-id="@Model?.worker.Id">Добавить</a> <span> | </span>
-                            
-                          
-                                <a asp-controller="Militarys" asp-action="Index" asp-route-id="@Model?.worker.Id">Просмотр</a>
+                                <span> | </span>  <a [routerLink]="['/worker-page/military/add/', worker.id]">Внести данные</a> <span> | </span>
+                
                             </h5>
                         </td>
                     </tr>
@@ -368,9 +366,9 @@
                     <td>
                         <h5>
                            
-                                <a asp-controller="LaborBooks" asp-action="AddLaborBook" asp-route-id="@Model?.worker.Id">   Добавить</a> <span> | </span>
+                                <a [routerLink]="['/worker-page/laborBook/add/', worker.id]">   Добавить</a> <span> | </span>
                             
-                            <a asp-controller="LaborBooks" asp-action="Index" asp-route-id="@Model?.worker.Id">Просмотр</a>
+                            <a [routerLink]="['/worker-page/laborBook/all/', worker.id]">Просмотр</a>
                         </h5>
                     </td>
                 </tr>
@@ -407,7 +405,7 @@
                         <tr *ngFor="let item of descriptionWorkerLaborBooks">
                           
                             <td>         
-                                {{item.dateRecord}}
+                                {{this.formatDate(item.dateRecord)}}
                             </td>
                             <td>
                                 {{item.nameWork}}
@@ -423,9 +421,8 @@
                             </td>
                             
                                 <td>
-                                    <a asp-controller="LaborBooks" asp-action="Edit" asp-route-id="@item.Id">Изменить</a> |
-                                    <a asp-controller="LaborBooks" asp-action="Details" asp-route-id="@item.Id">Подробнее</a> |
-                                    <a asp-controller="LaborBooks" asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+                                    <a [routerLink]="['/worker-page/laborBook/update/', item.id]">Изменить</a> |
+                                    <a [routerLink]="['/worker-page/laborBook/delete/', item.id]">Удалить</a>
                                 </td>
                            
                         </tr>
@@ -447,9 +444,9 @@
                         <td>
                             <h5>
                            
-                                <a asp-controller="Educations" asp-action="AddEducation" asp-route-id="@Model?.worker.Id">   Добавить</a> <span> | </span>
+                                <a [routerLink]="['/worker-page/education/add/', worker.id]">   Добавить</a> <span> | </span>
                             
-                                <a asp-controller="Educations" asp-action="Index" asp-route-id="@Model?.worker.Id">Просмотр</a>
+                                <a [routerLink]="['/worker-page/education/all/', worker.id]">Просмотр</a>
                             </h5>
                         </td>
                     </tr>
@@ -489,14 +486,13 @@
                             <td>
                               {{item.special}}
                             </td>
-                            <td>{{item.dateYearEnd}}
+                            <td>{{formatDate(item.dateYearEnd)}}
                                
                             </td>
                            
                                 <td>
-                                    <a asp-controller="Educations" asp-action="Edit" asp-route-id="@item.Id">Изменить</a> |
-                                    <a asp-controller="Educations" asp-action="Details" asp-route-id="@item.Id">Подробнее</a> |
-                                    <a asp-controller="Educations" asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+                                    <a [routerLink]="['/worker-page/education/update/', item.id]">Изменить</a> |
+                                    <a [routerLink]="['/worker-page/education/delete/', item.id]">Удалить</a>
                                 </td>
                            
     
@@ -518,9 +514,9 @@
                         <td>
                             <h5>
                          
-                                <a asp-controller="Vacations" asp-action="AddVacation" asp-route-id="@Model?.worker.Id">Добавить</a> <span> | </span>
+                                <a [routerLink]="['/worker-page/vacation/add/', worker.id]">Добавить</a> <span> | </span>
                             
-                                <a asp-controller="Vacations" asp-action="Index" asp-route-id="@Model?.worker.Id">Просмотр</a>
+                                <a [routerLink]="['/worker-page/vacation/all/', worker.id]">Просмотр</a>
                             </h5>
                         </td>
                     </tr>
@@ -545,22 +541,22 @@
                     </tr>
                 </thead>
                 <tbody>
-                   <!-- Цикл Vacations -->
+        
                         <tr *ngFor="let item of descriptionWorkerVacations">
                             <td>
-                              {{item.dateStartVacation}}
+                              {{formatDate(item.dateStartVacation)}}
                             </td>
                             <td>
-                                {{item.dateEndVacation}}
+                                {{formatDate(item.dateEndVacation)}}
                             </td>
                             <td>
                                {{item.typeVacation}}
                             </td>
                            
                                 <td>
-                                    <a asp-controller="Vacations" asp-action="Edit" asp-route-id="@item.Id">Изменить</a> |
-                                    <a asp-controller="Vacations" asp-action="Details" asp-route-id="@item.Id">Подробнее</a> |
-                                    <a asp-controller="Vacations" asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+                                    <a [routerLink]="['/worker-page/vacation/update/', item.id]">Изменить</a> |
+                                
+                                    <a [routerLink]="['/worker-page/vacation/delete/', item.id]">Удалить</a>
                                 </td>
                           
                         </tr>
@@ -579,9 +575,9 @@
                         <td>
                             <h5>
                           
-                                <a asp-controller="MedicalBooks" asp-action="AddMedicalBook" asp-route-id="@Model?.worker.Id">   Добавить</a> <span> | </span>
+                                <a [routerLink]="['/worker-page/medicalBook/add/', worker.id]">   Добавить</a> <span> | </span>
                            
-                                <a asp-controller="MedicalBooks" asp-action="Index" asp-route-id="@Model?.worker.Id">Просмотр</a>
+                                <a [routerLink]="['/worker-page/medicalBook/all/', worker.id]">Просмотр</a>
                             </h5>
                         </td>
                     </tr>
@@ -613,16 +609,15 @@
                               {{item.placeExam}}
                             </td>
                             <td>
-                               {{item.dateExam}}
+                               {{formatDate(item.dateExam)}}
                             </td>
                             <td>
                                {{item.conclusion}}
                             </td>
                            
                                 <td>
-                                    <a asp-controller="MedicalBooks" asp-action="Edit" asp-route-id="@item.Id">Изменить</a> |
-                                    <a asp-controller="MedicalBooks" asp-action="Details" asp-route-id="@item.Id">Подробнее</a> |
-                                    <a asp-controller="MedicalBooks" asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+                                    <a [routerLink]="['/worker-page/medicalBook/update/', item.id]">Изменить</a> |
+                                    <a [routerLink]="['/worker-page/medicalBook/delete/', item.id]">Удалить</a>
                                 </td>
                             
                         </tr>

@@ -42,6 +42,24 @@ import { DepartmentAddworkerComponent } from './department-page/department-addwo
 import { DepartmentChooseworkerComponent } from './department-page/department-chooseworker/department-chooseworker.component';
 import { DepartmentConfirmworkerComponent } from './department-page/department-confirmworker/department-confirmworker.component';
 import { WorkerAddindepartmentComponent } from './worker-page/worker-addindepartment/worker-addindepartment.component';
+import { MilitaryAddComponent } from './worker-page/descriptions/military/military-add/military-add.component';
+import { LaborbookAddComponent } from './worker-page/descriptions/laborbook/laborbook-add/laborbook-add.component';
+import { LaborbookAllComponent } from './worker-page/descriptions/laborbook/laborbook-all/laborbook-all.component';
+import { EducationAddComponent } from './worker-page/descriptions/education/education-add/education-add.component';
+import { EducationAllComponent } from './worker-page/descriptions/education/education-all/education-all.component';
+import { VacationAddComponent } from './worker-page/descriptions/vacation/vacation-add/vacation-add.component';
+import { VacationAllComponent } from './worker-page/descriptions/vacation/vacation-all/vacation-all.component';
+import { MedicalbookAddComponent } from './worker-page/descriptions/medicalBook/medicalbook-add/medicalbook-add.component';
+import { MedicalbookAllComponent } from './worker-page/descriptions/medicalBook/medicalbook-all/medicalbook-all.component';
+import { LaborbookDeleteComponent } from './worker-page/descriptions/laborbook/laborbook-delete/laborbook-delete.component';
+import { LaborbookUpdateComponent } from './worker-page/descriptions/laborbook/laborbook-update/laborbook-update.component';
+import { EducationDeleteComponent } from './worker-page/descriptions/education/education-delete/education-delete.component';
+import { EducationUpdateComponent } from './worker-page/descriptions/education/education-update/education-update.component';
+import { MedicalbookUpdateComponent } from './worker-page/descriptions/medicalBook/medicalbook-update/medicalbook-update.component';
+import { MedicalbookDeleteComponent } from './worker-page/descriptions/medicalBook/medicalbook-delete/medicalbook-delete.component';
+import { VacationUpdateComponent } from './worker-page/descriptions/vacation/vacation-update/vacation-update.component';
+import { VacationDeleteComponent } from './worker-page/descriptions/vacation/vacation-delete/vacation-delete.component';
+import { DepartmentandpostsofworkerDeleteComponent } from './worker-page/descriptions/departmentandpostofworker/departmentandpostsofworker-delete/departmentandpostsofworker-delete.component';
 
 const mapConfig: YaConfig = {
   apikey: '3d7dc5c5-e1ba-4602-85e9-09ebd053ec6c',
@@ -87,7 +105,25 @@ const mapConfig: YaConfig = {
     DepartmentAddworkerComponent,
     DepartmentChooseworkerComponent,
     DepartmentConfirmworkerComponent,
-    WorkerAddindepartmentComponent
+    WorkerAddindepartmentComponent,
+    MilitaryAddComponent,
+    LaborbookAddComponent,
+    LaborbookAllComponent,
+    EducationAddComponent,
+    EducationAllComponent,
+    VacationAddComponent,
+    VacationAllComponent,
+    MedicalbookAddComponent,
+    MedicalbookAllComponent,
+    LaborbookDeleteComponent,
+    LaborbookUpdateComponent,
+    EducationDeleteComponent,
+    EducationUpdateComponent,
+    MedicalbookUpdateComponent,
+    MedicalbookDeleteComponent,
+    VacationUpdateComponent,
+    VacationDeleteComponent,
+    DepartmentandpostsofworkerDeleteComponent
   ],
   imports: [
     BrowserModule,

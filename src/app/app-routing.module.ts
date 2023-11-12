@@ -36,6 +36,25 @@ import { DepartmentAddworkerComponent } from './department-page/department-addwo
 import { DepartmentChooseworkerComponent } from './department-page/department-chooseworker/department-chooseworker.component';
 import { DepartmentConfirmworkerComponent } from './department-page/department-confirmworker/department-confirmworker.component';
 import { WorkerAddindepartmentComponent } from './worker-page/worker-addindepartment/worker-addindepartment.component';
+import { MilitaryAddComponent } from './worker-page/descriptions/military/military-add/military-add.component';
+import { LaborbookAddComponent } from './worker-page/descriptions/laborbook/laborbook-add/laborbook-add.component';
+import { LaborbookAllComponent } from './worker-page/descriptions/laborbook/laborbook-all/laborbook-all.component';
+import { EducationAddComponent } from './worker-page/descriptions/education/education-add/education-add.component';
+import { EducationAllComponent } from './worker-page/descriptions/education/education-all/education-all.component';
+import { VacationAddComponent } from './worker-page/descriptions/vacation/vacation-add/vacation-add.component';
+import { VacationAllComponent } from './worker-page/descriptions/vacation/vacation-all/vacation-all.component';
+import { MedicalbookAddComponent } from './worker-page/descriptions/medicalBook/medicalbook-add/medicalbook-add.component';
+import { MedicalbookAllComponent } from './worker-page/descriptions/medicalBook/medicalbook-all/medicalbook-all.component';
+import { LaborbookDeleteComponent } from './worker-page/descriptions/laborbook/laborbook-delete/laborbook-delete.component';
+import { LaborbookUpdateComponent } from './worker-page/descriptions/laborbook/laborbook-update/laborbook-update.component';
+import { EducationDeleteComponent } from './worker-page/descriptions/education/education-delete/education-delete.component';
+import { EducationUpdateComponent } from './worker-page/descriptions/education/education-update/education-update.component';
+import { MedicalbookUpdateComponent } from './worker-page/descriptions/medicalBook/medicalbook-update/medicalbook-update.component';
+import { MedicalbookDeleteComponent } from './worker-page/descriptions/medicalBook/medicalbook-delete/medicalbook-delete.component';
+import { VacationUpdateComponent } from './worker-page/descriptions/vacation/vacation-update/vacation-update.component';
+import { VacationDeleteComponent } from './worker-page/descriptions/vacation/vacation-delete/vacation-delete.component';
+import { DepartmentsAndPostsOfWorker } from './models/DepartmentsAndPostsOfWorker';
+import { DepartmentandpostsofworkerDeleteComponent } from './worker-page/descriptions/departmentandpostofworker/departmentandpostsofworker-delete/departmentandpostsofworker-delete.component';
 
 
 const routes: Routes = [
@@ -53,6 +72,25 @@ const routes: Routes = [
   { path: 'worker-page/recovery/:id', component:WorkerRecoveryComponent},
   { path: 'worker-page/update/:id', component:WorkerUpdateComponent},
   { path: 'worker-page/addInDepartment/:id', component:WorkerAddindepartmentComponent},
+  { path: 'worker-page/military/add/:id', component:MilitaryAddComponent},
+  { path: 'worker-page/laborBook/add/:id', component:LaborbookAddComponent},
+  { path: 'worker-page/laborBook/all/:id', component:LaborbookAllComponent},
+  { path: 'worker-page/laborBook/delete/:id', component:LaborbookDeleteComponent},
+  { path: 'worker-page/laborBook/update/:id', component:LaborbookUpdateComponent},
+  { path: 'worker-page/education/add/:id', component:EducationAddComponent},
+  { path: 'worker-page/education/all/:id', component:EducationAllComponent},
+  { path: 'worker-page/education/delete/:id', component:EducationDeleteComponent},
+  { path: 'worker-page/education/update/:id', component:EducationUpdateComponent},
+  { path: 'worker-page/vacation/add/:id', component:VacationAddComponent},
+  { path: 'worker-page/vacation/all/:id', component:VacationAllComponent},
+  { path: 'worker-page/vacation/update/:id', component:VacationUpdateComponent},
+  { path: 'worker-page/vacation/delete/:id', component:VacationDeleteComponent},
+  { path: 'worker-page/medicalBook/add/:id', component:MedicalbookAddComponent},
+  { path: 'worker-page/medicalBook/all/:id', component:MedicalbookAllComponent},
+  { path: 'worker-page/medicalBook/update/:id', component:MedicalbookUpdateComponent},
+  { path: 'worker-page/medicalBook/delete/:id', component:MedicalbookDeleteComponent},
+  { path: 'worker-page/departmentsandpostsofworker/delete/:id', component:DepartmentandpostsofworkerDeleteComponent},
+  
 
   { path: 'department-page', component: DepartmentPageComponent },
   { path: 'department-page/create', component: DepartmentCreateComponent},

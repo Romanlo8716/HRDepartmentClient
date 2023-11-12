@@ -178,11 +178,7 @@
                     
                     <a [routerLink]="['/worker-page/update/', worker.worker.id]">Изменить</a> <span> | </span>
                     
-                   
-                        <a >Подробнее</a>
-
-                   
-                      <span> | </span>  <a >Удалить из отдела</a>
+                        <a [routerLink]="['/worker-page/departmentsandpostsofworker/delete', worker.id]">Удалить из отдела</a>
                     
                     </td>
 
